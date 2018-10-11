@@ -48,6 +48,7 @@
     Public global_draw_itrs As Boolean = True
     Public global_draw_wpoint As Boolean = True
     Public global_draw_weapon As Boolean = True
+    Public global_draw_wHitboxes As Boolean = False
     Public global_draw_bpoint As Boolean = True
     Public global_draw_opoint As Boolean = True
     Public global_draw_cpoint As Boolean = True

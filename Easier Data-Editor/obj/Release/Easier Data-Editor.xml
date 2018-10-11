@@ -152,6 +152,11 @@ Easier Data-Editor
   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Easier_Data_Editor.My.Resources.Resources.logo">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Easier_Data_Editor.My.Resources.Resources.shadow">
 <summary>
   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.

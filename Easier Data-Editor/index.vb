@@ -586,7 +586,11 @@ Public Class index
             ElseIf name.EndsWith("bpoint") Then
                 global_draw_bpoint = checkState
             ElseIf name.EndsWith("wpoint") Then
+                global_draw_wpoint = checkState
+            ElseIf name.EndsWith("weapon") Then
                 global_draw_weapon = checkState
+            ElseIf name.EndsWith("wHitbox") Then
+                global_draw_wHitboxes = checkState
             ElseIf name.EndsWith("cpoint") Then
                 global_draw_cpoint = checkState
             ElseIf name.EndsWith("opoint") Then

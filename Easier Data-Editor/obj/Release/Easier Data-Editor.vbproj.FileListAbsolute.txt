@@ -26,3 +26,30 @@ D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Ea
 D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Easier LF-Editor - Data-Editor\obj\Release\Easier_Data_Editor.ui_frames_reformatting.resources
 D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Easier LF-Editor - Data-Editor\obj\Release\Easier_Data_Editor.ui_tag_adder.resources
 D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Easier LF-Editor - Data-Editor\obj\Release\Easier_Data_Editor.ui_id_changer.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.exe.config
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.exe
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.pdb
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.xml
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\ICSharpCode.AvalonEdit.dll
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\WeifenLuo.WinFormsUI.Docking.dll
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbprojAssemblyReference.cache
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.index.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_about.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frames_reformatting.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_error_list.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frameViewer.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_go_to.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_id_changer.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_search.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_settings.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_tag_adder.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_unused_frames.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.Resources.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_textEditor.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.GenerateResource.cache
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.CoreCompileInputs.cache
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.CopyComplete
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.exe
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.xml
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.pdb

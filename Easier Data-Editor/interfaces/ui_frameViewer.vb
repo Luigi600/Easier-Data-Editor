@@ -27,6 +27,7 @@ Public Class ui_frameViewer
     Private m_bitmaps As New Dictionary(Of Integer, Bitmap)
 
     Private m_hasFocus As Boolean = False
+    Private m_fromGlobalEvent As Boolean = False
     Private Property hasFocus As Boolean Implements IFrameViewer.hasFocus
         Get
             Return m_hasFocus
@@ -116,6 +117,7 @@ Public Class ui_frameViewer
 
     Public Sub RefreshGlobalSettings()
         If isGlobalSettingsEnable Then
+            m_fromGlobalEvent = True
             TSMI_axis.Checked = global_draw_axis
             cb_axis.Checked = global_draw_axis
             TSMI_center_xy.Checked = global_draw_centerXY
@@ -130,6 +132,8 @@ Public Class ui_frameViewer
             cb_wpoint.Checked = global_draw_wpoint
             TSMI_weapon.Checked = global_draw_weapon
             cb_weapon.Checked = global_draw_weapon
+            TSMI_wHitbox.Checked = global_draw_wHitboxes
+            cb_wHitbox.Checked = global_draw_wHitboxes
             TSMI_bpoint.Checked = global_draw_bpoint
             cb_bpoint.Checked = global_draw_bpoint
             TSMI_opoint.Checked = global_draw_opoint
@@ -141,6 +145,8 @@ Public Class ui_frameViewer
             m_zoom = global_zoom
             scrollPosition = global_scrollPosition
             CenterPoint = global_centerPoint
+
+            m_fromGlobalEvent = False
 
             If Not hasFocus And Visible Then
                 pic_preview.Invalidate()
@@ -1451,7 +1457,7 @@ Public Class ui_frameViewer
         ElseIf TypeOf (sender) Is CheckBox Then
             result = CType(sender, CheckBox).Checked
         End If
-        If isGlobalSettingsEnable Then
+        If isGlobalSettingsEnable And Not m_fromGlobalEvent Then
             RaiseEvent GlobalSettingsChanged(sender, New class_customEventArgs(result, ID))
         End If
         Return result
