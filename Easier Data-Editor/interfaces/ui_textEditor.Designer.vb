@@ -22,18 +22,19 @@ Partial Class ui_textEditor
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ui_textEditor))
-        Me.tim_ErrorChecker = New System.Windows.Forms.Timer()
-        Me.tim_UnusedFrames = New System.Windows.Forms.Timer()
-        Me.cms_ = New System.Windows.Forms.ContextMenuStrip()
-        Me.TSMI_selectAll = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSS_1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TSMI_frameViewer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tim_ErrorChecker = New System.Windows.Forms.Timer(Me.components)
+        Me.tim_UnusedFrames = New System.Windows.Forms.Timer(Me.components)
+        Me.cms_ = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TSMI_cut = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_copy = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_paste = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_paste_cool = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_delete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_selectAll = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSS_1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TSMI_frameViewer = New System.Windows.Forms.ToolStripMenuItem()
         Me.cms_.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -49,62 +50,62 @@ Partial Class ui_textEditor
         '
         Me.cms_.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_cut, Me.TSMI_copy, Me.TSMI_paste, Me.TSMI_paste_cool, Me.TSMI_delete, Me.TSMI_selectAll, Me.TSS_1, Me.TSMI_frameViewer})
         Me.cms_.Name = "cms_"
-        Me.cms_.Size = New System.Drawing.Size(175, 164)
-        '
-        'TSMI_selectAll
-        '
-        Me.TSMI_selectAll.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_select_all
-        Me.TSMI_selectAll.Name = "TSMI_selectAll"
-        Me.TSMI_selectAll.Size = New System.Drawing.Size(174, 22)
-        Me.TSMI_selectAll.Text = "Select All"
-        '
-        'TSS_1
-        '
-        Me.TSS_1.Name = "TSS_1"
-        Me.TSS_1.Size = New System.Drawing.Size(171, 6)
-        '
-        'TSMI_frameViewer
-        '
-        Me.TSMI_frameViewer.CheckOnClick = True
-        Me.TSMI_frameViewer.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_character
-        Me.TSMI_frameViewer.Name = "TSMI_frameViewer"
-        Me.TSMI_frameViewer.Size = New System.Drawing.Size(174, 22)
-        Me.TSMI_frameViewer.Text = "Frame Viewer"
+        Me.cms_.Size = New System.Drawing.Size(181, 186)
         '
         'TSMI_cut
         '
         Me.TSMI_cut.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_cut
         Me.TSMI_cut.Name = "TSMI_cut"
-        Me.TSMI_cut.Size = New System.Drawing.Size(174, 22)
+        Me.TSMI_cut.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_cut.Text = "Cut"
         '
         'TSMI_copy
         '
         Me.TSMI_copy.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_copy
         Me.TSMI_copy.Name = "TSMI_copy"
-        Me.TSMI_copy.Size = New System.Drawing.Size(174, 22)
+        Me.TSMI_copy.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_copy.Text = "Copy"
         '
         'TSMI_paste
         '
         Me.TSMI_paste.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_paste
         Me.TSMI_paste.Name = "TSMI_paste"
-        Me.TSMI_paste.Size = New System.Drawing.Size(174, 22)
+        Me.TSMI_paste.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_paste.Text = "Paste"
         '
         'TSMI_paste_cool
         '
         Me.TSMI_paste_cool.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_paste_cool
         Me.TSMI_paste_cool.Name = "TSMI_paste_cool"
-        Me.TSMI_paste_cool.Size = New System.Drawing.Size(174, 22)
-        Me.TSMI_paste_cool.Text = "Paste && Adapts IDs"
+        Me.TSMI_paste_cool.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_paste_cool.Text = "Paste && Adapt IDs"
         '
         'TSMI_delete
         '
         Me.TSMI_delete.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_delete1
         Me.TSMI_delete.Name = "TSMI_delete"
-        Me.TSMI_delete.Size = New System.Drawing.Size(174, 22)
+        Me.TSMI_delete.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_delete.Text = "Delete"
+        '
+        'TSMI_selectAll
+        '
+        Me.TSMI_selectAll.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_select_all
+        Me.TSMI_selectAll.Name = "TSMI_selectAll"
+        Me.TSMI_selectAll.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_selectAll.Text = "Select All"
+        '
+        'TSS_1
+        '
+        Me.TSS_1.Name = "TSS_1"
+        Me.TSS_1.Size = New System.Drawing.Size(177, 6)
+        '
+        'TSMI_frameViewer
+        '
+        Me.TSMI_frameViewer.CheckOnClick = True
+        Me.TSMI_frameViewer.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_character
+        Me.TSMI_frameViewer.Name = "TSMI_frameViewer"
+        Me.TSMI_frameViewer.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_frameViewer.Text = "Frame Viewer"
         '
         'ui_textEditor
         '

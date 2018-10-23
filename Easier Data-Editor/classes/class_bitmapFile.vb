@@ -1,4 +1,15 @@
-﻿<Serializable>
+﻿'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> symbolized a bitmap file from character header </summary>
+
+<Serializable>
 Public Class class_bitmapFile
     Implements ICloneable
 

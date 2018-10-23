@@ -1,6 +1,11 @@
 ﻿Imports System.IO
 Imports System.Runtime.Serialization.Formatters.Binary
 
+'------------------------------------------''---------Created by Lui's Studio----------''-------(http://www.lui-studio.net/)-------''------------------------------------------''-------------Author: Luigi600-------------''------------------------------------------'
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> symbolized a LF2 Frame with FrameChangeType </summary>
+
 Public Enum FrameChangeType
     None = -1
     WPoint

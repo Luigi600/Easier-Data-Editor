@@ -1,4 +1,15 @@
-﻿Public Class class_frame
+﻿'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> A frame offset item for the text editor (not really a lf2 frame, see *LFFrame*)</summary>
+
+Public Class class_frame
     Public ID As Integer = -1
     Public Offset As Long = -1
     Public Length As Long = -1

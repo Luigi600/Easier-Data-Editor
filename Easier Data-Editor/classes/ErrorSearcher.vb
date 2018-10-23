@@ -3,6 +3,11 @@ Imports System.Text.RegularExpressions
 Imports ICSharpCode.AvalonEdit
 Imports ICSharpCode.AvalonEdit.Document
 
+'------------------------------------------''---------Created by Lui's Studio----------''-------(http://www.lui-studio.net/)-------''------------------------------------------''-------------Author: Luigi600-------------''------------------------------------------'
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Search Class to find errors (see ErrorItem) </summary>
+
 Public Class ErrorSearcher
     Private m_editor As ITextEditor = Nothing
     Public Errors As New List(Of ErrorItem)
@@ -40,7 +45,7 @@ Public Class ErrorSearcher
     End Sub
 
     Private Sub bw_DoWork(sender As Object, e As DoWorkEventArgs)
-        Dim startDate As Date = Date.Now
+        'Dim startDate As Date = Date.Now
         Dim input As String = CType(e.Argument, String)
 
         CheckError(Errors, "(?<=^(?!#)\s*\<frame\>)[^<>]*\<frame\>", input, "Frame is not ending", -2)
@@ -107,7 +112,7 @@ Public Class ErrorSearcher
 
         CType(sender, BackgroundWorker).ReportProgress(0)
 
-        Console.WriteLine("Error founds in " & (Date.Now - startDate).TotalMilliseconds & " milsecs")
+        'Console.WriteLine("Error founds in " & (Date.Now - startDate).TotalMilliseconds & " milsecs")
     End Sub
 
     Private Sub bw_ProgressChanged(sender As Object, e As ProgressChangedEventArgs)

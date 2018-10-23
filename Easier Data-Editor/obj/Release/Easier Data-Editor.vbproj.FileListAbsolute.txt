@@ -53,3 +53,4 @@ D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Ed
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.exe
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.xml
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.pdb
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_search_multi.resources

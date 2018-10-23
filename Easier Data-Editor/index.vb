@@ -1,7 +1,16 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Text.RegularExpressions
-Imports ICSharpCode.AvalonEdit.Search
 Imports WeifenLuo.WinFormsUI.Docking
+
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
 
 Public Class index
 
@@ -19,7 +28,7 @@ Public Class index
                 If WindowState = FormWindowState.Minimized Then
                     class_singleInstance.ShowWindow(Me.Handle, class_singleInstance.SW_RESTORE)
                 End If
-                Exit Sub 'damit myBase nicht ausgerufen wird
+                Exit Sub 'bypass MyBase Function
             End If
         End If
 
@@ -28,6 +37,7 @@ Public Class index
 
     Public Sub New()
         InitializeComponent()
+        Dim debugTest As Date = Date.Now
         dockpan_main.Theme = New VS2015LightTheme
         dockpan_main.DockBackColor = Color.White
         dockpan_main.DocumentStyle = DocumentStyle.DockingWindow
@@ -39,7 +49,7 @@ Public Class index
         If IO.File.Exists(IO.Path.Combine(appFolder, "layout.xml")) And opt_saveSession Then
             isStarting = True
             dockpan_main.LoadFromXml(IO.Path.Combine(appFolder, "layout.xml"), New DeserializeDockContent(AddressOf getContentFromPersistString))
-            For Each dockcon As DockContent In dockpan_main.Documents
+            For Each dockcon As DockContent In dockpan_main.Contents
                 If TypeOf (dockcon) Is ui_textEditor Then
                     Dim editor As ui_textEditor = CType(dockcon, ui_textEditor)
                     If IsNothing(editor.Viewer) Then
@@ -47,15 +57,10 @@ Public Class index
                     End If
 
                     addRecentFile(editor.Path)
-
-                    AddHandler editor.Viewer.GlobalSettingsChanged, AddressOf GlobalSettingsChangedFromViewer
-                    'AddHandler editor.Viewer.OtherEditorsCanRefresh, AddressOf OtherEditorsCanRefreshFromViewer
-                    AddHandler editor.EditorTextChanged, AddressOf ActivedContentTextChanged
-                    AddHandler editor.SaveStateChanged, AddressOf EditorSaveStateChanged
-                    AddHandler editor.DropEventOfEditor, AddressOf lv_items_DragDrop2
-                    AddHandler editor.CurrentFrameViewerChanger, AddressOf TSMI_hT_frameViewer_Click
+                    setEvents(editor)
                 End If
             Next
+            CheckEXEFiles()
 
             isStarting = False
             Dim dockConTest As DockContent = dockpan_main.ActiveDocument
@@ -76,7 +81,7 @@ Public Class index
             End If
         Next
 
-
+        Console.WriteLine("Loading Time: {0}", (Date.Now - debugTest).TotalMilliseconds)
 
 
         'Dim mtchs As MatchCollection = Regex.Matches(test, "(?<=\<Word\>)[^\<\>]+(?=\</Word\>)", RegexOptions.IgnoreCase)
@@ -93,7 +98,7 @@ Public Class index
         ms_main.Invalidate()
         ms_icons.Invalidate()
 
-        For Each con As DockContent In dockpan_main.Documents
+        For Each con As DockContent In dockpan_main.Contents
             con.Refresh()
             con.Invalidate()
         Next
@@ -126,13 +131,7 @@ Public Class index
                     editor.Show(dockpan_main, DockState.Document)
                 End If
 
-
-                AddHandler editor.Viewer.GlobalSettingsChanged, AddressOf GlobalSettingsChangedFromViewer
-                'AddHandler editor.Viewer.OtherEditorsCanRefresh, AddressOf OtherEditorsCanRefreshFromViewer
-                AddHandler editor.EditorTextChanged, AddressOf ActivedContentTextChanged
-                AddHandler editor.SaveStateChanged, AddressOf EditorSaveStateChanged
-                AddHandler editor.DropEventOfEditor, AddressOf lv_items_DragDrop2
-                AddHandler editor.CurrentFrameViewerChanger, AddressOf TSMI_hT_frameViewer_Click
+                setEvents(editor)
 
                 If opt_autoOpenViewer Then
                     Dim foundOtherViewer As Boolean = False
@@ -148,6 +147,8 @@ Public Class index
                     End If
                 End If
             End If
+
+            CheckEXEFiles(file)
         End If
     End Sub
 
@@ -169,12 +170,7 @@ Public Class index
         Dim editor As New ui_textEditor()
         editor.Show(dockpan_main, DockState.Document)
 
-        AddHandler editor.Viewer.GlobalSettingsChanged, AddressOf GlobalSettingsChangedFromViewer
-        'AddHandler editor.Viewer.OtherEditorsCanRefresh, AddressOf OtherEditorsCanRefreshFromViewer
-        AddHandler editor.EditorTextChanged, AddressOf ActivedContentTextChanged
-        AddHandler editor.SaveStateChanged, AddressOf EditorSaveStateChanged
-        AddHandler editor.DropEventOfEditor, AddressOf lv_items_DragDrop2
-        AddHandler editor.CurrentFrameViewerChanger, AddressOf TSMI_hT_frameViewer_Click
+        setEvents(editor)
     End Sub
 
     Private Sub TSMI_open_Click(sender As Object, e As EventArgs) Handles TSMI_open.Click, TSMI_icon_open.Click
@@ -194,7 +190,7 @@ Public Class index
     End Sub
 
     Private Sub TSMI_saveAll_Click(sender As Object, e As EventArgs) Handles TSMI_saveAll.Click, TSMI_icon_saveAll.Click
-        For Each dockEle As IDockContent In dockpan_main.Documents
+        For Each dockEle As DockContent In dockpan_main.Contents
             If TypeOf (dockEle) Is ITextEditor Then
                 Dim teditor As ITextEditor = CType(dockEle, ITextEditor)
                 If Not teditor.IsSave Then
@@ -205,7 +201,7 @@ Public Class index
     End Sub
 
     Private Sub TSMI_close_Click(sender As Object, e As EventArgs) Handles TSMI_close.Click, TSMI_icon_close.Click
-        Dim yetActived As DockContent = dockpan_main.ActiveDocument
+        Dim yetActived As DockContent = dockpan_main.ActiveContent
         If Not IsNothing(yetActived) Then
             If yetActived.HideOnClose Then
                 yetActived.Hide()
@@ -316,7 +312,7 @@ Public Class index
     '    'End If
     'End Sub
 
-    Private Sub TSMI_find_Click(sender As Object, e As EventArgs) Handles TSMI_find.Click, TSMI_find_replace.Click
+    Private Sub TSMI_find_Click(sender As Object, e As EventArgs) Handles TSMI_find.Click, TSMI_find_replace.Click, TSMI_find_multi.Click
         If Not IsNothing(SearchClass) Then
             If Not IsNothing(lastRealTextEditor) Then
                 SearchClass.TextEditor = lastRealTextEditor.GetAvalonEditor
@@ -332,15 +328,29 @@ Public Class index
             SearchClass.TextEditor = Nothing
         End If
 
-        If Not IsNothing(SearchWindow) Then
-            SearchClass.ReverseIsOpen = CType(sender, ToolStripMenuItem).Name.EndsWith("replace")
-            SearchWindow.Showing()
-            If Not SearchWindow.Visible Then
-                SearchWindow.Show(Me)
-            Else
-                SearchWindow.Focus()
+        If Not CType(sender, ToolStripMenuItem).Name.EndsWith("multi") Then
+            If Not IsNothing(SearchWindow) Then
+                SearchClass.ReverseIsOpen = CType(sender, ToolStripMenuItem).Name.EndsWith("replace")
+                SearchWindow.Showing()
+                If Not SearchWindow.Visible Then
+                    SearchWindow.Show(Me)
+                Else
+                    SearchWindow.Focus()
+                End If
+            End If
+        Else
+            If Not IsNothing(FindMultiWindow) Then
+                SearchClass.ReverseIsOpen = True
+                FindMultiWindow.Showing()
+                If Not FindMultiWindow.Visible Then
+                    FindMultiWindow.Show(Me)
+                Else
+                    FindMultiWindow.Focus()
+                End If
             End If
         End If
+
+
     End Sub
 
     Private Sub TSMI_find2_Click(sender As ToolStripMenuItem, e As EventArgs) Handles TSMI_find_again.Click, TSMI_find_again_reverse.Click
@@ -366,7 +376,7 @@ Public Class index
 #Region "Windows"
     Private Sub TSMI_view_DropDownOpening(sender As Object, e As EventArgs) Handles TSMI_windows.DropDownOpening
         TSMI_frameViewer.DropDownItems.Clear()
-        For Each con As IDockContent In dockpan_main.Documents
+        For Each con As DockContent In dockpan_main.Contents
             If TypeOf (con) Is ITextEditor Then
                 Dim editor As ITextEditor = CType(con, ITextEditor)
                 Dim TSMI As New ToolStripMenuItem With {.Checked = CType(editor.Viewer, DockContent).Visible}
@@ -467,7 +477,7 @@ Public Class index
 
     Private Sub TSMI_framesReformatting_Click(sender As Object, e As EventArgs) Handles TSMI_framesReformatting.Click
         Dim listOfEditors As New List(Of ITextEditor)
-        For Each dockCon As DockContent In dockpan_main.Documents
+        For Each dockCon As DockContent In dockpan_main.Contents
             If TypeOf (dockCon) Is ITextEditor Then
                 listOfEditors.Add(dockCon)
             End If
@@ -510,7 +520,6 @@ Public Class index
         End If
     End Sub
 #End Region
-
 #Region "Hidden Tools"
     Private Sub TSMI_hT_frameViewer_Click(sender As Object, e As EventArgs) Handles TSMI_hT_frameViewer.Click
         Dim editor As Object = sender
@@ -526,6 +535,34 @@ Public Class index
         If Not IsNothing(editor) And TypeOf (editor) Is IFrameViewer Then
             TSMI_ViewItem_CheckStateChanged(New ToolStripMenuItem With {.Tag = editor}, e)
             CType(editor, IFrameViewer).getTextEditor.getDockContent.Activate()
+        End If
+    End Sub
+#End Region
+#Region "MenuStrip Icons"
+    Private Sub TSComb_lf_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TSComb_lf.SelectedIndexChanged
+        TSMI_run.Enabled = Not IsNothing(TSComb_lf.SelectedItem)
+    End Sub
+
+    Private Sub TSMI_run_MouseMove(sender As Object, e As MouseEventArgs) Handles TSMI_run.MouseMove
+        TSMI_run.Select()
+    End Sub
+
+    Private Sub TSMI_run_Click(sender As Object, e As EventArgs) Handles TSMI_run.Click
+        If Not IsNothing(TSComb_lf.SelectedItem) Then
+            If TypeOf (TSComb_lf.SelectedItem) Is class_comboEXEItem Then
+                Dim exeFile As String = CType(TSComb_lf.SelectedItem, class_comboEXEItem).Path
+                If IO.File.Exists(exeFile) Then
+                    Dim lfP As New Process
+                    lfP.StartInfo.FileName = exeFile
+                    lfP.StartInfo.Domain = exeFile
+                    lfP.StartInfo.WorkingDirectory = IO.Path.GetDirectoryName(exeFile)
+                    lfP.Start()
+                End If
+            Else
+                My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Beep)
+            End If
+        Else
+            My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Beep)
         End If
     End Sub
 #End Region
@@ -550,7 +587,7 @@ Public Class index
     End Sub
 
     Private Sub SettingsWasChanged()
-        For Each dockCon As DockContent In dockpan_main.Documents
+        For Each dockCon As DockContent In dockpan_main.Contents
             If TypeOf (dockCon) Is ITextEditor Then
                 Dim editor As ICSharpCode.AvalonEdit.TextEditor = CType(dockCon, ITextEditor).GetAvalonEditor
                 editor.FontFamily = opt_userFontFamily 'Courier New")
@@ -626,7 +663,7 @@ Public Class index
             End If
         End If
 
-        For Each dockCon As DockContent In dockpan_main.Documents
+        For Each dockCon As DockContent In dockpan_main.Contents
             If TypeOf (dockCon) Is ui_frameViewer Then
                 If Not CType(dockCon, ui_frameViewer).ID = e.Object2 Then
                     CType(dockCon, ui_frameViewer).RefreshGlobalSettings()
@@ -661,6 +698,10 @@ Public Class index
         Dim itWasViewer As Boolean = False
         setButtons(Not IsNothing(yetActived))
 
+        If isStarting Then
+            Exit Sub
+        End If
+
         If Not IsNothing(lastFrameViewer) Then
             lastFrameViewer.hasFocus = False
         End If
@@ -694,6 +735,8 @@ Public Class index
                     CType(yetActived, ITextEditor).SetUnusedFramesList()
                     lastID = CType(yetActived, ITextEditor).ID
                 End If
+
+                setComboBoxFrames(CType(yetActived, ITextEditor), CType(yetActived, ITextEditor).GetAvalonEditor().CaretOffset)
             Else
                 TSMI_undo.Enabled = False
                 TSMI_icon_undo.Enabled = False
@@ -702,7 +745,7 @@ Public Class index
             End If
         Else
             Dim clrList As Boolean = True
-            For Each dockPan As IDockContent In dockpan_main.Documents
+            For Each dockPan As DockContent In dockpan_main.Contents
                 If TypeOf (dockPan) Is ITextEditor Then
                     clrList = False
                     Exit For
@@ -724,6 +767,7 @@ Public Class index
             TSMI_redo.Enabled = sender.CanRedo
             TSMI_icon_redo.Enabled = TSMI_redo.Enabled
         End If
+        setComboBoxFrames(getActivedEditor())
     End Sub
 
     Private Sub EditorSaveStateChanged(ByVal sender As Object, ByVal e As class_customEventArgs)
@@ -746,6 +790,116 @@ Public Class index
         End If
     End Sub
 
+    Private m_IWasThat As Boolean = False
+    Private Sub TSComb_frames_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TSComb_frames.SelectedIndexChanged
+        If Not m_IWasThat Then
+            If Not IsNothing(TSComb_frames.Tag) Then
+                If Not IsNothing(TSComb_frames.SelectedItem) Then
+                    If TypeOf (TSComb_frames.SelectedItem) Is class_comboItem Then
+                        m_IWasThat = True
+
+                        If TypeOf (TSComb_frames.Tag) Is ITextEditor Then
+                            Dim editor As ICSharpCode.AvalonEdit.TextEditor = CType(TSComb_frames.Tag, ITextEditor).GetAvalonEditor
+                            editor.SelectionLength = 0
+                            editor.SelectionStart = CType(TSComb_frames.SelectedItem, class_comboItem).FrameOffset
+                            editor.SelectionLength = TSComb_frames.SelectedText.Length
+                            editor.TextArea.Caret.BringCaretToView()
+                            CType(TSComb_frames.Tag, ITextEditor).CurrentFrameName = TSComb_frames.SelectedItem.ToString
+                        End If
+
+                        m_IWasThat = False
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub EditorFrameChanged(ByVal sender As Object, ByVal e As class_customEventArgs)
+        If Not m_IWasThat Then
+            If Not IsNothing(e.Object) Then
+                If TypeOf (e.Object) Is String Then
+                    Dim frameName As String = getRegexValue(CType(e.Object, String), "(?<=<frame>\s*[0-9]+\s+).*", RegexOptions.IgnoreCase)
+                    If Not IsNothing(frameName) Then
+                        frameName = frameName.Trim
+                        Dim ind As Integer = 0
+                        For Each item As class_comboItem In TSComb_frames.Items
+                            If item.FrameName.Equals(frameName) Then
+                                m_IWasThat = True
+                                TSComb_frames.SelectedIndex = ind
+                                CType(TSComb_frames.Tag, ITextEditor).CurrentFrameName = TSComb_frames.SelectedItem.ToString
+                                m_IWasThat = False
+                                Exit For
+                            End If
+                            ind += 1
+                        Next
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub setComboBoxFrames(ByVal activedEditor As ITextEditor, Optional ByVal caret As Integer = -1)
+        If Not IsNothing(activedEditor) Then
+            TSComb_frames.Items.Clear()
+            TSComb_frames.Tag = activedEditor
+            Dim rg As New Regex("(?<=<frame>\s*[0-9]+\s+).*", RegexOptions.IgnoreCase)
+            Dim lastFrame As String = ""
+            For Each mtch As Match In rg.Matches(activedEditor.GetAvalonEditor.Text)
+                If mtch.Success Then
+                    If Not lastFrame.Equals(mtch.Value) Then
+                        TSComb_frames.Items.Add(New class_comboItem(mtch.Value, mtch.Index))
+                    End If
+
+                    lastFrame = mtch.Value
+                End If
+            Next
+
+
+            m_IWasThat = True
+            TSComb_frames.Text = activedEditor.CurrentFrameName
+            m_IWasThat = False
+        End If
+    End Sub
+
+    Private Sub ActivedContentClosed(sender As Object, e As FormClosedEventArgs)
+        CheckEXEFiles("", CType(sender, ITextEditor).ID)
+    End Sub
+
+    Private Sub CheckEXEFiles(Optional ByVal addFile As String = "", Optional ByVal ID As Integer = -100)
+        Dim exeFiles As New List(Of String)
+        Dim oldText As String = TSComb_lf.Text
+        If Not String.IsNullOrEmpty(addFile) Then
+            exeFiles.Add(getEXE(addFile))
+        End If
+        For Each dockCon As DockContent In dockpan_main.Contents
+            If TypeOf (dockCon) Is ITextEditor Then
+                If Not CType(dockCon, ITextEditor).ID = ID Then
+                    Dim exeFile As String = getEXE(CType(dockCon, ITextEditor).Path)
+                    If Not exeFiles.Contains(exeFile) Then
+                        exeFiles.Add(exeFile)
+                    End If
+                End If
+            End If
+        Next
+
+        TSComb_lf.Items.Clear()
+        For Each exeFile As String In exeFiles
+            If Not String.IsNullOrEmpty(exeFile) Then
+                Dim comboItem As New class_comboEXEItem(exeFile)
+                TSComb_lf.Items.Add(comboItem)
+                If comboItem.ToString().Equals(oldText) Then
+                    TSComb_lf.SelectedIndex = TSComb_lf.Items.Count - 1
+                End If
+            End If
+        Next
+        If TSComb_lf.Items.Count = 0 Then
+            TSMI_run.Enabled = False
+        Else
+            TSMI_run.Enabled = Not IsNothing(TSComb_lf.SelectedItem)
+        End If
+    End Sub
+
+
     Private Sub setButtons(ByVal val As Boolean)
         TSMI_save.Enabled = val
         TSMI_saveAll.Enabled = val
@@ -765,6 +919,17 @@ Public Class index
 
         TSMI_expand.Enabled = opt_folding
         TSMI_collapse.Enabled = opt_folding
+    End Sub
+
+    Private Sub setEvents(ByRef editor As ui_textEditor)
+        AddHandler editor.Viewer.GlobalSettingsChanged, AddressOf GlobalSettingsChangedFromViewer
+        'AddHandler editor.Viewer.OtherEditorsCanRefresh, AddressOf OtherEditorsCanRefreshFromViewer
+        AddHandler editor.EditorTextChanged, AddressOf ActivedContentTextChanged
+        AddHandler editor.SaveStateChanged, AddressOf EditorSaveStateChanged
+        AddHandler editor.DropEventOfEditor, AddressOf lv_items_DragDrop2
+        AddHandler editor.CurrentFrameViewerChanger, AddressOf TSMI_hT_frameViewer_Click
+        AddHandler editor.FrameChanged, AddressOf EditorFrameChanged
+        AddHandler editor.FormClosed, AddressOf ActivedContentClosed
     End Sub
 #End Region
 
@@ -788,7 +953,7 @@ Public Class index
     End Sub
 
     Private Sub index_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        For Each dockCon As IDockContent In dockpan_main.Documents
+        For Each dockCon As DockContent In dockpan_main.Contents
             If TypeOf (dockCon) Is ITextEditor Then
                 Dim editor As ITextEditor = dockCon
                 If Not editor.IsSave Then
@@ -803,15 +968,15 @@ Public Class index
 
         If Not e.Cancel Then
             If opt_saveSession Then
-                For i As Integer = 0 To dockpan_main.Documents.Count - 1
-                    If i >= dockpan_main.Documents.Count Then
+                For i As Integer = 0 To dockpan_main.Contents.Count - 1
+                    If i >= dockpan_main.Contents.Count Then
                         Exit For
                     End If
 
-                    If TypeOf (dockpan_main.Documents(i)) Is ITextEditor Then
-                        If String.IsNullOrEmpty(CType(dockpan_main.Documents(i), ITextEditor).Path) Then
-                            CType(dockpan_main.Documents(i), ITextEditor).IsSave = True
-                            CType(dockpan_main.Documents(i), DockContent).Close()
+                    If TypeOf (dockpan_main.Contents(i)) Is ITextEditor Then
+                        If String.IsNullOrEmpty(CType(dockpan_main.Contents(i), ITextEditor).Path) Then
+                            CType(dockpan_main.Contents(i), ITextEditor).IsSave = True
+                            CType(dockpan_main.Contents(i), DockContent).Close()
                             i -= 1
                         End If
                     End If

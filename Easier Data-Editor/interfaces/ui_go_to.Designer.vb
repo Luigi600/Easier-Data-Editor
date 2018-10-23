@@ -39,13 +39,13 @@ Partial Class ui_go_to
         Me.rb_line.Name = "rb_line"
         Me.rb_line.Size = New System.Drawing.Size(45, 17)
         Me.rb_line.TabIndex = 2
-        Me.rb_line.TabStop = True
         Me.rb_line.Text = "Line"
         Me.rb_line.UseVisualStyleBackColor = True
         '
         'rb_frame
         '
         Me.rb_frame.AutoSize = True
+        Me.rb_frame.Checked = True
         Me.rb_frame.Location = New System.Drawing.Point(145, 27)
         Me.rb_frame.Name = "rb_frame"
         Me.rb_frame.Size = New System.Drawing.Size(54, 17)

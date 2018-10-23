@@ -8,7 +8,7 @@
 '<project>Easier Data-Editor (STM93 Version)</project>
 '<author>Luigi600</author>
 
-Public Class ui_search
+Public Class ui_search_multi
     Private m_updating As Boolean = True
     Private m_arrow_bottom As Bitmap = Nothing
     Private m_arrow_top As Bitmap = Nothing
@@ -124,7 +124,7 @@ Public Class ui_search
         End If
     End Sub
 
-    Private Sub btn_find_Click(sender As Control, e As EventArgs) Handles btn_find_beginning.Click, btn_find_reverse.Click, btn_find.Click
+    Private Sub btn_find_Click(sender As Control, e As EventArgs) Handles btn_find_reverse.Click, btn_find.Click
         If Not IsNothing(SearchClass) Then
             SearchClass.Find(sender.Name.EndsWith("reverse"))
         End If
@@ -174,5 +174,9 @@ Public Class ui_search
 
     Private Sub btn_cancel_Click(sender As Object, e As EventArgs) Handles btn_cancel.Click
         Me.Hide()
+    End Sub
+
+    Private Sub btn_find_Click(sender As Object, e As EventArgs) Handles btn_find_reverse.Click, btn_find.Click
+
     End Sub
 End Class

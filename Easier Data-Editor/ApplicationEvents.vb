@@ -3,6 +3,17 @@ Imports System.Xml
 Imports ICSharpCode.AvalonEdit.Highlighting
 Imports Microsoft.VisualBasic.ApplicationServices
 
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Main-Class: Loads in single instance, loads options/settings, set autocomplete list </summary>
+
 Namespace My
     ' Für MyApplication sind folgende Ereignisse verfügbar:
     ' Startup: Wird beim Starten der Anwendung noch vor dem Erstellen des Startformulars ausgelöst.
@@ -41,7 +52,7 @@ Namespace My
                 If Not IsNothing(found_pro) Then
                     For Each arg As String In Application.CommandLineArgs
                         Try
-                            If IO.Path.GetExtension(arg).ToLower.Substring(1).Equals("dat") Then
+                            If IO.Path.GetExtension(arg).ToLower.Substring(1).Equals("dat") Or IO.Path.GetExtension(arg).ToLower.Substring(1).Equals("txt") Then
                                 class_singleInstance.SendMessage(found_pro.MainWindowHandle, class_singleInstance.WM_SETTEXT, 0, arg)
                             End If
                         Catch ex As Exception

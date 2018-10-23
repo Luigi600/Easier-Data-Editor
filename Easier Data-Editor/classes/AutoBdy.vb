@@ -1,4 +1,15 @@
-﻿Public Class AutoBdy
+﻿'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Foretaste of Easier LF-Editor (just beta version; easter-egg) </summary>
+
+Public Class AutoBdy
     Public Shared Function createBody(ByVal img As Bitmap) As Rectangle
         Return getBody(img)
     End Function

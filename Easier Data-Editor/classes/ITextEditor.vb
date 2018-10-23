@@ -1,5 +1,15 @@
-﻿Imports System.Windows
-Imports ICSharpCode
+﻿Imports ICSharpCode
+
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Interface for ui_textEditor </summary>
 
 Public Interface ITextEditor
     Property Path As String
@@ -10,10 +20,13 @@ Public Interface ITextEditor
     Event TextChanged As EventHandler
     Event DropEventOfEditor As CustomEvent
     Event CurrentFrameViewerChanger As EventHandler
+    Event FrameChanged As ITextEditor.CustomEvent
     Property Viewer As ui_frameViewer
     Property IsSave As Boolean
     'Property ErrorList As List(Of ErrorItem)
     Property ErrorSearcher As ErrorSearcher
+
+    Property CurrentFrameName As String 'only for combobox, thanks Uri >.>
 
     Sub SetErrorList(Optional ByVal checkVis As Boolean = True)
     Sub SetUnusedFramesList(Optional ByVal checkVis As Boolean = True)

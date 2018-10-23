@@ -99,6 +99,7 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="classes\AutoBdy.vb" />
     <Compile Include="classes\class_bitmapFile.vb" />
+    <Compile Include="classes\class_comboItem.vb" />
     <Compile Include="classes\class_customEventArgs.vb" />
     <Compile Include="classes\class_frame.vb" />
     <Compile Include="classes\class_ListViewItemComparer.vb" />
@@ -166,6 +167,12 @@
     <Compile Include="interfaces\ui_search.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="interfaces\ui_search_multi.Designer.vb">
+      <DependentUpon>ui_search_multi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces\ui_search_multi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="interfaces\ui_settings.Designer.vb">
       <DependentUpon>ui_settings.vb</DependentUpon>
     </Compile>
@@ -231,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="interfaces\ui_search.resx">
       <DependentUpon>ui_search.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces\ui_search_multi.resx">
+      <DependentUpon>ui_search_multi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="interfaces\ui_settings.resx">
       <DependentUpon>ui_settings.vb</DependentUpon>
@@ -302,6 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_16-colour2.ico" />
+    <None Include="Resources\icon_start.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\icon_error.png" />
     <None Include="Resources\icon_free.png" />

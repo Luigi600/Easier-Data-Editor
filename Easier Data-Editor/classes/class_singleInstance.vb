@@ -1,5 +1,10 @@
 ﻿Imports System.Runtime.InteropServices
 
+'------------------------------------------''---------Created by Lui's Studio----------''-------(http://www.lui-studio.net/)-------''------------------------------------------''-------------Author: Luigi600-------------''------------------------------------------'
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> see name.... </summary>
+
 Public Class class_singleInstance
 
     Public Const WM_COPYDATA As Integer = &H4A

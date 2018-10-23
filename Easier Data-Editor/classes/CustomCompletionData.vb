@@ -4,6 +4,11 @@ Imports ICSharpCode.AvalonEdit.CodeCompletion
 Imports ICSharpCode.AvalonEdit.Document
 Imports ICSharpCode.AvalonEdit.Editing
 
+'------------------------------------------''---------Created by Lui's Studio----------''-------(http://www.lui-studio.net/)-------''------------------------------------------''-------------Author: Luigi600-------------''------------------------------------------'
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> A completion item for autocomplete </summary>
+
 Public Module CompletionDataStuff
     Public endWordBlock As New List(Of String) From {"frame", "layer", "stage", "weapon_strength_list", "phase"}
     Public endWordWithSpaces As New List(Of String) From {"bdy", "itr", "bpoint", "opoint", "cpoint", "wpoint"}

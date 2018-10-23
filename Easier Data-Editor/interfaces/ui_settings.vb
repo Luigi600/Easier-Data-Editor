@@ -1,4 +1,14 @@
-﻿Public Class ui_settings
+﻿'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+
+Public Class ui_settings
     Delegate Sub ChangeView()
 
     Private m_function As ChangeView = Nothing

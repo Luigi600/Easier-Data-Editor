@@ -31,6 +31,9 @@ Partial Class index
         Me.TSMI_icon_close = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_icon_undo = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_icon_redo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSComb_frames = New System.Windows.Forms.ToolStripComboBox()
+        Me.TSComb_lf = New System.Windows.Forms.ToolStripComboBox()
+        Me.TSMI_run = New System.Windows.Forms.ToolStripMenuItem()
         Me.ss_infos = New System.Windows.Forms.StatusStrip()
         Me.TSSL_copyright = New System.Windows.Forms.ToolStripStatusLabel()
         Me.link_cookiesoft = New System.Windows.Forms.ToolStripStatusLabel()
@@ -68,6 +71,8 @@ Partial Class index
         Me.TSMI_find_again = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_find_again_reverse = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSS_6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TSMI_find_multi = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_jump_to = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_jump = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_jump_frame = New System.Windows.Forms.ToolStripMenuItem()
@@ -93,10 +98,10 @@ Partial Class index
         'ms_icons
         '
         Me.ms_icons.BackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.ms_icons.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_icon_new, Me.TSMI_icon_open, Me.TSMI_icon_save, Me.TSMI_icon_saveAll, Me.TSMI_icon_close, Me.TSMI_icon_undo, Me.TSMI_icon_redo})
+        Me.ms_icons.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_icon_new, Me.TSMI_icon_open, Me.TSMI_icon_save, Me.TSMI_icon_saveAll, Me.TSMI_icon_close, Me.TSMI_icon_undo, Me.TSMI_icon_redo, Me.TSComb_frames, Me.TSComb_lf, Me.TSMI_run})
         Me.ms_icons.Location = New System.Drawing.Point(0, 24)
         Me.ms_icons.Name = "ms_icons"
-        Me.ms_icons.Size = New System.Drawing.Size(1054, 24)
+        Me.ms_icons.Size = New System.Drawing.Size(1054, 27)
         Me.ms_icons.TabIndex = 0
         Me.ms_icons.Text = "Icons"
         '
@@ -104,48 +109,73 @@ Partial Class index
         '
         Me.TSMI_icon_new.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_new
         Me.TSMI_icon_new.Name = "TSMI_icon_new"
-        Me.TSMI_icon_new.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_new.Size = New System.Drawing.Size(28, 23)
         '
         'TSMI_icon_open
         '
         Me.TSMI_icon_open.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_open
         Me.TSMI_icon_open.Name = "TSMI_icon_open"
-        Me.TSMI_icon_open.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_open.Size = New System.Drawing.Size(28, 23)
         '
         'TSMI_icon_save
         '
         Me.TSMI_icon_save.Enabled = False
         Me.TSMI_icon_save.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_save
         Me.TSMI_icon_save.Name = "TSMI_icon_save"
-        Me.TSMI_icon_save.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_save.Size = New System.Drawing.Size(28, 23)
         '
         'TSMI_icon_saveAll
         '
         Me.TSMI_icon_saveAll.Enabled = False
         Me.TSMI_icon_saveAll.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_save_all
         Me.TSMI_icon_saveAll.Name = "TSMI_icon_saveAll"
-        Me.TSMI_icon_saveAll.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_saveAll.Size = New System.Drawing.Size(28, 23)
         '
         'TSMI_icon_close
         '
         Me.TSMI_icon_close.Enabled = False
         Me.TSMI_icon_close.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_close
         Me.TSMI_icon_close.Name = "TSMI_icon_close"
-        Me.TSMI_icon_close.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_close.Size = New System.Drawing.Size(28, 23)
         '
         'TSMI_icon_undo
         '
         Me.TSMI_icon_undo.Enabled = False
         Me.TSMI_icon_undo.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_undo
         Me.TSMI_icon_undo.Name = "TSMI_icon_undo"
-        Me.TSMI_icon_undo.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_undo.Size = New System.Drawing.Size(28, 23)
         '
         'TSMI_icon_redo
         '
         Me.TSMI_icon_redo.Enabled = False
         Me.TSMI_icon_redo.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_redo
         Me.TSMI_icon_redo.Name = "TSMI_icon_redo"
-        Me.TSMI_icon_redo.Size = New System.Drawing.Size(28, 20)
+        Me.TSMI_icon_redo.Size = New System.Drawing.Size(28, 23)
+        '
+        'TSComb_frames
+        '
+        Me.TSComb_frames.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TSComb_frames.Name = "TSComb_frames"
+        Me.TSComb_frames.Size = New System.Drawing.Size(130, 23)
+        '
+        'TSComb_lf
+        '
+        Me.TSComb_lf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TSComb_lf.Margin = New System.Windows.Forms.Padding(32, 0, 1, 0)
+        Me.TSComb_lf.Name = "TSComb_lf"
+        Me.TSComb_lf.Size = New System.Drawing.Size(200, 23)
+        '
+        'TSMI_run
+        '
+        Me.TSMI_run.Enabled = False
+        Me.TSMI_run.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_start
+        Me.TSMI_run.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TSMI_run.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.TSMI_run.Margin = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.TSMI_run.Name = "TSMI_run"
+        Me.TSMI_run.Padding = New System.Windows.Forms.Padding(20, 0, 10, 0)
+        Me.TSMI_run.Size = New System.Drawing.Size(85, 23)
+        Me.TSMI_run.Text = "   Run"
         '
         'ss_infos
         '
@@ -177,9 +207,9 @@ Partial Class index
         '
         Me.dockpan_main.AllowDrop = True
         Me.dockpan_main.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dockpan_main.Location = New System.Drawing.Point(0, 48)
+        Me.dockpan_main.Location = New System.Drawing.Point(0, 51)
         Me.dockpan_main.Name = "dockpan_main"
-        Me.dockpan_main.Size = New System.Drawing.Size(1054, 479)
+        Me.dockpan_main.Size = New System.Drawing.Size(1054, 476)
         Me.dockpan_main.TabIndex = 2
         '
         'ms_main
@@ -299,7 +329,7 @@ Partial Class index
         Me.TSMI_undo.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_undo
         Me.TSMI_undo.Name = "TSMI_undo"
         Me.TSMI_undo.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.TSMI_undo.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_undo.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_undo.Text = "Undo"
         '
         'TSMI_redo
@@ -307,20 +337,20 @@ Partial Class index
         Me.TSMI_redo.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_redo
         Me.TSMI_redo.Name = "TSMI_redo"
         Me.TSMI_redo.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
-        Me.TSMI_redo.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_redo.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_redo.Text = "Redo"
         '
         'TSS_5
         '
         Me.TSS_5.Name = "TSS_5"
-        Me.TSS_5.Size = New System.Drawing.Size(297, 6)
+        Me.TSS_5.Size = New System.Drawing.Size(292, 6)
         '
         'TSMI_cut
         '
         Me.TSMI_cut.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_cut
         Me.TSMI_cut.Name = "TSMI_cut"
         Me.TSMI_cut.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.TSMI_cut.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_cut.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_cut.Text = "Cut"
         '
         'TSMI_copy
@@ -328,7 +358,7 @@ Partial Class index
         Me.TSMI_copy.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_copy
         Me.TSMI_copy.Name = "TSMI_copy"
         Me.TSMI_copy.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.TSMI_copy.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_copy.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_copy.Text = "Copy"
         '
         'TSMI_paste
@@ -336,7 +366,7 @@ Partial Class index
         Me.TSMI_paste.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_paste
         Me.TSMI_paste.Name = "TSMI_paste"
         Me.TSMI_paste.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.TSMI_paste.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_paste.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_paste.Text = "Paste"
         '
         'TSMI_paste_cool
@@ -346,8 +376,8 @@ Partial Class index
         Me.TSMI_paste_cool.Name = "TSMI_paste_cool"
         Me.TSMI_paste_cool.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.TSMI_paste_cool.Size = New System.Drawing.Size(300, 22)
-        Me.TSMI_paste_cool.Text = "Paste && Adapts IDs"
+        Me.TSMI_paste_cool.Size = New System.Drawing.Size(295, 22)
+        Me.TSMI_paste_cool.Text = "Paste && Adapt IDs"
         Me.TSMI_paste_cool.ToolTipText = "While pasting it changes the frame IDs to available IDs. Also changes the ""next"" " &
     "values."
         '
@@ -356,7 +386,7 @@ Partial Class index
         Me.TSMI_delete.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_delete
         Me.TSMI_delete.Name = "TSMI_delete"
         Me.TSMI_delete.ShortcutKeys = System.Windows.Forms.Keys.Delete
-        Me.TSMI_delete.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_delete.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_delete.Text = "Delete"
         '
         'TSMI_selectAll
@@ -364,31 +394,31 @@ Partial Class index
         Me.TSMI_selectAll.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_select_all
         Me.TSMI_selectAll.Name = "TSMI_selectAll"
         Me.TSMI_selectAll.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.TSMI_selectAll.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_selectAll.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_selectAll.Text = "Select All"
         '
         'TSS_7
         '
         Me.TSS_7.Name = "TSS_7"
-        Me.TSS_7.Size = New System.Drawing.Size(297, 6)
+        Me.TSS_7.Size = New System.Drawing.Size(292, 6)
         '
         'TSMI_expand
         '
         Me.TSMI_expand.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_expand
         Me.TSMI_expand.Name = "TSMI_expand"
-        Me.TSMI_expand.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_expand.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_expand.Text = "Expand All Foldings"
         '
         'TSMI_collapse
         '
         Me.TSMI_collapse.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_collapse
         Me.TSMI_collapse.Name = "TSMI_collapse"
-        Me.TSMI_collapse.Size = New System.Drawing.Size(300, 22)
+        Me.TSMI_collapse.Size = New System.Drawing.Size(295, 22)
         Me.TSMI_collapse.Text = "Collapse All Foldings"
         '
         'TSMI_search
         '
-        Me.TSMI_search.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_find, Me.TSMI_find_replace, Me.TSMI_find_again, Me.TSMI_find_again_reverse, Me.TSS_6, Me.TSMI_jump_to, Me.TSMI_jump, Me.TSMI_jump_frame})
+        Me.TSMI_search.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_find, Me.TSMI_find_replace, Me.TSMI_find_again, Me.TSMI_find_again_reverse, Me.TSS_6, Me.TSMI_find_multi, Me.ToolStripSeparator1, Me.TSMI_jump_to, Me.TSMI_jump, Me.TSMI_jump_frame})
         Me.TSMI_search.Enabled = False
         Me.TSMI_search.Name = "TSMI_search"
         Me.TSMI_search.Size = New System.Drawing.Size(54, 20)
@@ -407,7 +437,7 @@ Partial Class index
         Me.TSMI_find_replace.Name = "TSMI_find_replace"
         Me.TSMI_find_replace.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.TSMI_find_replace.Size = New System.Drawing.Size(279, 22)
-        Me.TSMI_find_replace.Text = "Find and replace..."
+        Me.TSMI_find_replace.Text = "Find and Replace..."
         '
         'TSMI_find_again
         '
@@ -427,6 +457,17 @@ Partial Class index
         '
         Me.TSS_6.Name = "TSS_6"
         Me.TSS_6.Size = New System.Drawing.Size(276, 6)
+        '
+        'TSMI_find_multi
+        '
+        Me.TSMI_find_multi.Name = "TSMI_find_multi"
+        Me.TSMI_find_multi.Size = New System.Drawing.Size(279, 22)
+        Me.TSMI_find_multi.Text = "Multi Find and Replace"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(276, 6)
         '
         'TSMI_jump_to
         '
@@ -491,7 +532,7 @@ Partial Class index
         '
         Me.TSMI_framesReformatting.Name = "TSMI_framesReformatting"
         Me.TSMI_framesReformatting.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.TSMI_framesReformatting.Size = New System.Drawing.Size(287, 22)
+        Me.TSMI_framesReformatting.Size = New System.Drawing.Size(327, 22)
         Me.TSMI_framesReformatting.Text = "Frames Reformatting"
         '
         'TSMI_mirrorFrame
@@ -499,20 +540,22 @@ Partial Class index
         Me.TSMI_mirrorFrame.Image = Global.Easier_Data_Editor.My.Resources.Resources.icon_mirror
         Me.TSMI_mirrorFrame.Name = "TSMI_mirrorFrame"
         Me.TSMI_mirrorFrame.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
-        Me.TSMI_mirrorFrame.Size = New System.Drawing.Size(287, 22)
+        Me.TSMI_mirrorFrame.Size = New System.Drawing.Size(327, 22)
         Me.TSMI_mirrorFrame.Text = "Mirror Frame (with data)"
         '
         'TSMI_tag_adder
         '
         Me.TSMI_tag_adder.Name = "TSMI_tag_adder"
-        Me.TSMI_tag_adder.Size = New System.Drawing.Size(287, 22)
+        Me.TSMI_tag_adder.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
+        Me.TSMI_tag_adder.Size = New System.Drawing.Size(327, 22)
         Me.TSMI_tag_adder.Text = "Tag Adder (Frames must selected)"
         Me.TSMI_tag_adder.ToolTipText = "Adds to all selected frames a custom tag."
         '
         'TSMI_ID_changer
         '
         Me.TSMI_ID_changer.Name = "TSMI_ID_changer"
-        Me.TSMI_ID_changer.Size = New System.Drawing.Size(287, 22)
+        Me.TSMI_ID_changer.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.J), System.Windows.Forms.Keys)
+        Me.TSMI_ID_changer.Size = New System.Drawing.Size(327, 22)
         Me.TSMI_ID_changer.Text = "Auto ID Changer (Frames must selected)"
         '
         'TSMI_settings
@@ -544,7 +587,7 @@ Partial Class index
         '
         'ofd_data
         '
-        Me.ofd_data.Filter = "LF2-Data File|*.dat"
+        Me.ofd_data.Filter = "Files|*.dat;*.txt|LF2-Data File|*.dat|Text Files|*.txt"
         Me.ofd_data.Multiselect = True
         '
         'index
@@ -636,4 +679,9 @@ Partial Class index
     Friend WithEvents TSMI_hT_frameViewer As ToolStripMenuItem
     Friend WithEvents TSMI_tag_adder As ToolStripMenuItem
     Friend WithEvents TSMI_ID_changer As ToolStripMenuItem
+    Friend WithEvents TSComb_frames As ToolStripComboBox
+    Friend WithEvents TSComb_lf As ToolStripComboBox
+    Friend WithEvents TSMI_run As ToolStripMenuItem
+    Friend WithEvents TSMI_find_multi As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
 End Class

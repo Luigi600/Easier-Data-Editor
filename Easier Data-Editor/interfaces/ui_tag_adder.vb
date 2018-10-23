@@ -2,6 +2,16 @@
 Imports System.Windows.Forms.Integration
 Imports ICSharpCode
 
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+
 Public Class ui_tag_adder
 
     Private m_editor As AvalonEdit.TextEditor = Nothing

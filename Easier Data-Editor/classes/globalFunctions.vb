@@ -1,6 +1,17 @@
 ﻿Imports System.Text.RegularExpressions
 Imports WeifenLuo.WinFormsUI.Docking
 
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Functions which are repeating except getContentFromPersistString </summary>
+
 Module globalFunctions
     Private m_integerToEditor As New Dictionary(Of Integer, ITextEditor)
 
@@ -94,6 +105,7 @@ Module globalFunctions
         Return optionalerReturn
     End Function
 
+    'copy and paste from a c# file; author unknown
     Public Sub PlainTextToDatFile(ByVal text As String, ByVal filepath As String, Optional ByVal password As String = "SiuHungIsAGoodBearBecauseHeIsVeryGood", Optional ByVal First123 As String = "")
         Dim dat As Byte() = New Byte(123 + (text.Length - 1)) {}
         For i As Integer = 0 To 123 - 1
@@ -119,6 +131,7 @@ Module globalFunctions
         fs.Close()
     End Sub
 
+    'copy and paste from a c# file; author unknown
     Public Function DatFileToPlainText(ByVal filepath As [String], Optional ByVal read_length As Int64 = -1, Optional ByVal password As [String] = "SiuHungIsAGoodBearBecauseHeIsVeryGood") As [String]
         Dim fileStream As New IO.FileStream(filepath, IO.FileMode.Open, IO.FileAccess.Read)
         If read_length < 0 Then read_length = fileStream.Length - 1
@@ -127,8 +140,8 @@ Module globalFunctions
         Dim decryptedtext As New Text.StringBuilder(CInt(fileStream.Length))
         fileStream.Close()
         Dim index As Integer = 12
-        For i As Integer = 123 To buffer.Length - 1
-            Try
+        Try
+            For i As Integer = 123 To buffer.Length - 1
                 Dim b1 As Byte = CByte(buffer(i) - CByte(AscW(password(index))))
                 decryptedtext.Append(ChrW(b1))
 
@@ -136,10 +149,28 @@ Module globalFunctions
                 If index = password.Length Then
                     index = 0
                 End If
-            Catch
-            End Try
-        Next
+            Next
+        Catch ex As Exception
+        End Try
+
         Return decryptedtext.ToString()
+    End Function
+
+
+    Public Function getEXE(ByVal file As String) As String
+        Try
+            Dim lastFolder As String = ""
+            Dim folder As String = IO.Path.GetDirectoryName(file)
+            Do While folder.Length > 0 And Not lastFolder.Equals(folder)
+                For Each exeFile As String In IO.Directory.GetFiles(folder, "*.exe")
+                    Return exeFile
+                Next
+                lastFolder = folder
+                folder = IO.Path.GetDirectoryName(folder)
+            Loop
+        Catch ex As Exception
+        End Try
+        Return Nothing
     End Function
 
 

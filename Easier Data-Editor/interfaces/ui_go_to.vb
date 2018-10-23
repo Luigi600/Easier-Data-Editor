@@ -1,5 +1,15 @@
 ﻿Imports System.Text.RegularExpressions
 
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+
 Public Class ui_go_to
     Private m_updating As Boolean = True
     Private m_editor As ICSharpCode.AvalonEdit.TextEditor = Nothing

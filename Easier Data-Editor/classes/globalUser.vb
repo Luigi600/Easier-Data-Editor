@@ -1,4 +1,15 @@
-﻿Module globalUser
+﻿'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> All global stuff, like settings, windows etc.. </summary>
+
+Module globalUser
     Public appFolder As String = IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Easier LF-Editor", "Data Editor")
 
     Public isStarting As Boolean = True
@@ -13,6 +24,7 @@
     Public ErrorList As New ui_error_list
     Public UnusedFrames As New ui_unused_frames
     Public SearchWindow As New ui_search
+    Public FindMultiWindow As New ui_search_multi
     Public SearchClass As New Search
 
 #Region "User Options"

@@ -161,9 +161,9 @@ Partial Class ui_settings
         Me.lbl_ms.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_ms.Location = New System.Drawing.Point(21, 31)
         Me.lbl_ms.Name = "lbl_ms"
-        Me.lbl_ms.Size = New System.Drawing.Size(96, 13)
+        Me.lbl_ms.Size = New System.Drawing.Size(98, 13)
         Me.lbl_ms.TabIndex = 13
-        Me.lbl_ms.Text = "Shows Menu Strip:"
+        Me.lbl_ms.Text = "Display Menu Strip:"
         '
         'lbl_default_bg_col
         '

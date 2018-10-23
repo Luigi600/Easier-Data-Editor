@@ -1,5 +1,10 @@
 ﻿Imports System.Xml
 
+'------------------------------------------''---------Created by Lui's Studio----------''-------(http://www.lui-studio.net/)-------''------------------------------------------''-------------Author: Luigi600-------------''------------------------------------------'
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Module (static class) to load and save settings </summary>
+
 Module xmlStuff
     Public Sub loadFromXMLFile(ByVal file As String)
         If IO.File.Exists(file) Then

@@ -1,4 +1,15 @@
-﻿Public Class ErrorItem
+﻿'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
+'<summary> Error Item: to restore message, offset and line </summary>
+
+Public Class ErrorItem
     Implements ICloneable
 
     Public Message As String = ""

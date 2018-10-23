@@ -6,7 +6,16 @@ Imports System.Windows.Input
 Imports ICSharpCode
 Imports ICSharpCode.AvalonEdit.CodeCompletion
 Imports ICSharpCode.AvalonEdit.Folding
-Imports ICSharpCode.AvalonEdit.Search
+
+'------------------------------------------'
+'---------Created by Lui's Studio----------'
+'-------(http://www.lui-studio.net/)-------'
+'------------------------------------------'
+'-------------Author: Luigi600-------------'
+'------------------------------------------'
+
+'<project>Easier Data-Editor (STM93 Version)</project>
+'<author>Luigi600</author>
 
 Public Class ui_textEditor
     Inherits WeifenLuo.WinFormsUI.Docking.DockContent
@@ -47,9 +56,9 @@ Public Class ui_textEditor
     Public Event EditorTextChanged As EventHandler Implements ITextEditor.TextChanged
     Public Event DropEventOfEditor As ITextEditor.CustomEvent Implements ITextEditor.DropEventOfEditor
     Public Event CurrentFrameViewerChanger As EventHandler Implements ITextEditor.CurrentFrameViewerChanger
+    Public Event FrameChanged As ITextEditor.CustomEvent Implements ITextEditor.FrameChanged
     Private m_viewer As ui_frameViewer = Nothing
 
-    Public Event FrameChanged As ITextEditor.CustomEvent
     Public Event HeaderChanged As ITextEditor.CustomEvent
 
     Public Property IsSave As Boolean Implements ITextEditor.IsSave
@@ -93,17 +102,26 @@ Public Class ui_textEditor
 
     Public Sub Save(Optional ByVal saveAs As Boolean = False) Implements ITextEditor.Save
         If Not saveAs And Path.Length > 2 Then
-            PlainTextToDatFile(AvalonEditor.Text, Path,, "Edited with Easier Data-Editor (STM93 Version) Created by Luigi600 (http://cookiesoft.lui-studio.net/) ")
+
+            If IO.Path.GetExtension(Path).Substring(1).ToLower.Equals("dat") Then
+                PlainTextToDatFile(AvalonEditor.Text, Path,, "Edited with Easier Data-Editor (STM93 Version) Created by Luigi600 (http://cookiesoft.lui-studio.net/) ")
+            Else
+                My.Computer.FileSystem.WriteAllText(Path, AvalonEditor.Text, False)
+            End If
             IsSave = True
         Else
-            Using sfd As New SaveFileDialog() With {.Filter = "LF2-Data|*.dat"}
+            Using sfd As New SaveFileDialog() With {.Filter = "Files|*.dat;*.txt|LF2-Data File|*.dat|Text Files|*.txt"}
                 If sfd.ShowDialog = DialogResult.OK Then
-                    Path = sfd.FileName
-                    PlainTextToDatFile(AvalonEditor.Text, sfd.FileName,, "Edited with Easier Data-Editor (STM93 Version) Created by Luigi600 (http://cookiesoft.lui-studio.net/) ")
+                    If IO.Path.GetExtension(sfd.FileName).Substring(1).ToLower.Equals("dat") Then
+                        PlainTextToDatFile(AvalonEditor.Text, sfd.FileName,, "Edited with Easier Data-Editor (STM93 Version) Created by Luigi600 (http://cookiesoft.lui-studio.net/) ")
+                    Else
+                        My.Computer.FileSystem.WriteAllText(sfd.FileName, AvalonEditor.Text, False)
+                    End If
                     IsSave = True
                     If Not IsNothing(Viewer) Then
                         RaiseEvent HeaderChanged(Me, New class_customEventArgs(AvalonEditor.Document.GetText(0, If(AvalonEditor.Document.TextLength < 1000, AvalonEditor.Document.TextLength, 1000))))
                     End If
+                    Path = sfd.FileName
                 End If
             End Using
         End If
@@ -167,13 +185,18 @@ Public Class ui_textEditor
         End If
 
         AddHandler AvalonEditor.TextArea.MouseRightButtonDown, AddressOf AvalonEditor_MouseButtonEvent
+        AddHandler AvalonEditor.TextArea.Caret.PositionChanged, AddressOf AvalonEditor_PositionChanged
         Dim host As New ElementHost With {.Dock = DockStyle.Fill}
         AvalonEditor.FontFamily = opt_userFontFamily 'Courier New")
         AvalonEditor.FontSize = opt_userFontSize
         AvalonEditor.ShowLineNumbers = True
         If IO.File.Exists(Path) Then
             Try
-                AvalonEditor.Text = globalFunctions.DatFileToPlainText(Path)
+                If IO.Path.GetExtension(Path).Substring(1).ToLower.Equals("dat") Then
+                    AvalonEditor.Text = globalFunctions.DatFileToPlainText(Path)
+                Else
+                    AvalonEditor.Text = IO.File.ReadAllText(Path)
+                End If
             Catch ex As Exception
             End Try
         End If
@@ -269,7 +292,7 @@ Public Class ui_textEditor
         End If
     End Sub
 
-    Private Sub AvalonEditor_PreviewMouseUp(sender As Object, e As MouseButtonEventArgs) Handles AvalonEditor.PreviewMouseUp
+    Private Sub AvalonEditor_PositionChanged(ByVal sender As Object, ByVal e As EventArgs)
         If Not lastLine = AvalonEditor.TextArea.Caret.Line Then
             Dim lastID As Integer = Me.lastID
             getFrame(AvalonEditor.TextArea.Caret.Line)
@@ -279,16 +302,7 @@ Public Class ui_textEditor
             End If
         End If
     End Sub
-    Private Sub AvalonEditor_PreviewKeyUp(sender As Object, e As KeyEventArgs) Handles AvalonEditor.PreviewKeyUp
-        If Not lastLine = AvalonEditor.TextArea.Caret.Line Then
-            Dim lastID As Integer = Me.lastID
-            getFrame(AvalonEditor.TextArea.Caret.Line)
-            lastLine = AvalonEditor.TextArea.Caret.Line
-            If Not lastID = Me.lastID Then
-                m_PreviousFramesList.Clear()
-            End If
-        End If
-    End Sub
+
     Private Sub AvalonEditor_MouseButtonEvent(sender As Object, e As MouseButtonEventArgs)
         cms_.Show(MousePosition)
     End Sub
@@ -497,6 +511,7 @@ Public Class ui_textEditor
         End If
     End Sub
 
+    Private Property CurrentFrameName As String Implements ITextEditor.CurrentFrameName
 
     Private Sub tim_frameChecker_Tick(sender As Object, e As EventArgs) Handles tim_ErrorChecker.Tick
         If (Date.Now - m_lastTextChanged).TotalMilliseconds > 1000 Then
