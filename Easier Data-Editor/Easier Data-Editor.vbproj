@@ -14,6 +14,33 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <AssemblyFileVersionSettings>
+    </AssemblyFileVersionSettings>
+    <AssemblyInfoVersionSettings>
+    </AssemblyInfoVersionSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,7 +49,8 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Easier Data-Editor.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,8 +60,10 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Easier Data-Editor.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <AssemblyInfoVersionSemVerSettings>AssemblyVersion.NoneWithAutoReset.Alpha</AssemblyInfoVersionSemVerSettings>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -54,12 +84,12 @@
     <ApplicationIcon>icon_16-colour2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\DLLs\ICSharpCode.AvalonEdit.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="ScintillaNET, Version=3.6.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ScintillaNET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -73,11 +103,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.4.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Project_LF-Editor_DataEditor\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <HintPath>..\..\..\Samples\dockpanelsuite-Release_3.0.4\DockSample\bin\Release\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
     <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=3.0.4.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Project_LF-Editor_DataEditor\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
+      <HintPath>..\..\..\Samples\dockpanelsuite-Release_3.0.4\DockSample\bin\Release\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
@@ -96,99 +126,140 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.vb" />
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="classes\AutoBdy.vb" />
-    <Compile Include="classes\class_bitmapFile.vb" />
-    <Compile Include="classes\class_comboItem.vb" />
-    <Compile Include="classes\class_customEventArgs.vb" />
-    <Compile Include="classes\class_frame.vb" />
-    <Compile Include="classes\class_ListViewItemComparer.vb" />
-    <Compile Include="classes\class_singleInstance.vb" />
-    <Compile Include="classes\class_weapon.vb" />
-    <Compile Include="classes\CustomCompletionData.vb" />
-    <Compile Include="classes\ErrorItem.vb" />
-    <Compile Include="classes\ErrorSearcher.vb" />
-    <Compile Include="classes\globalFunctions.vb" />
-    <Compile Include="classes\globalUser.vb" />
-    <Compile Include="classes\IFrameViewer.vb" />
-    <Compile Include="classes\ITextEditor.vb" />
-    <Compile Include="classes\LFFolding.vb" />
-    <Compile Include="classes\LFFrame.vb" />
-    <Compile Include="classes\Search.vb" />
-    <Compile Include="classes\SearchItem.vb" />
-    <Compile Include="classes\system_KeyInfo.vb" />
-    <Compile Include="classes\xmlStuff.vb" />
-    <Compile Include="index.vb">
+    <Compile Include="Classes\CustomComboBoxItem.vb" />
+    <Compile Include="Classes\FrameViewer\ESelectedPosition.vb" />
+    <Compile Include="Classes\GlobalConsts.vb" />
+    <Compile Include="Classes\LF\TextSpecials\Offset.vb" />
+    <Compile Include="Classes\LF\TextSpecials\OffsetRect.vb" />
+    <Compile Include="Classes\LF\TextSpecials\TextFrameOffsets.vb" />
+    <Compile Include="Classes\ScrollableRTB.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\SortedSetWithEvents.vb" />
+    <Compile Include="Classes\LF\EFrameChangeType.vb" />
+    <Compile Include="Classes\Scintilla\CustomScintilla.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\LF\Bdy.vb" />
+    <Compile Include="Classes\LF\Itr.vb" />
+    <Compile Include="Classes\LF\Frame.vb" />
+    <Compile Include="Classes\LF\LFRect.vb" />
+    <Compile Include="Classes\LF\OPoint.vb" />
+    <Compile Include="Classes\LF\WPoint.vb" />
+    <Compile Include="Classes\SpecialListWithEvents.vb" />
+    <Compile Include="Classes\Scintilla\EIndicatorIndices.vb" />
+    <Compile Include="Classes\Scintilla\EMarginIndices.vb" />
+    <Compile Include="Classes\Scintilla\EMarkerIndices.vb" />
+    <Compile Include="Classes\SyntaxHighlighting\RangeSyntax.vb" />
+    <Compile Include="Classes\Scintilla\StylesIndices.vb" />
+    <Compile Include="Classes\SyntaxHighlighting\Syntax.vb" />
+    <Compile Include="Classes\SyntaxHighlighting\SyntaxItem.vb" />
+    <Compile Include="Classes\UndoRedoItem.vb" />
+    <Compile Include="Classes\UnusedIDItem.vb" />
+    <Compile Include="Classes\User\ENewline.vb" />
+    <Compile Include="Classes\User\ESearchMode.vb" />
+    <Compile Include="Classes\User\ETransparency.vb" />
+    <Compile Include="Classes\User\FrameViewerSettings.vb" />
+    <Compile Include="Classes\User\SearchSettings.vb" />
+    <Compile Include="Classes\User\Settings.vb" />
+    <Compile Include="Tools\AutoBdy.vb" />
+    <Compile Include="Tools\Equation.vb" />
+    <Compile Include="Tools\FramesReformatting.vb" />
+    <Compile Include="Tools\IDs.vb" />
+    <Compile Include="Tools\RegexMatchCloner.vb" />
+    <Compile Include="Classes\LF\FrameHeader.vb" />
+    <Compile Include="Classes\IUserItem.vb" />
+    <Compile Include="Classes\SyntaxHighlighting\SyntaxItemKeywords.vb" />
+    <Compile Include="Classes\SyntaxHighlighting\SyntaxItemRegex.vb" />
+    <Compile Include="Classes\LF\TextFrame.vb" />
+    <Compile Include="Classes\FrameViewer\SelectedObject.vb" />
+    <Compile Include="Classes\SingleInstance.vb" />
+    <Compile Include="Classes\LF\Weapon.vb" />
+    <Compile Include="Classes\ErrorItem.vb" />
+    <Compile Include="Classes\old\globalFunctions.vb" />
+    <Compile Include="Classes\FrameViewer\ItrPathResult.vb" />
+    <Compile Include="Classes\KeyInformation.vb" />
+    <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="index.Designer.vb">
-      <DependentUpon>index.vb</DependentUpon>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_about.Designer.vb">
-      <DependentUpon>ui_about.vb</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces\ui_about.vb">
+    <Compile Include="Translation\GlobalStuff.vb" />
+    <Compile Include="Translation\Item.vb" />
+    <Compile Include="Translation\ITranslatable.vb" />
+    <Compile Include="Translation\Language.vb" />
+    <Compile Include="Translation\TranslatableDockContent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_frames_reformatting.Designer.vb">
-      <DependentUpon>ui_frames_reformatting.vb</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces\ui_frames_reformatting.vb">
+    <Compile Include="Translation\TranslatableForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_error_list.Designer.vb">
-      <DependentUpon>ui_error_list.vb</DependentUpon>
+    <Compile Include="Translation\TranslatableUserControl.vb">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_error_list.vb">
+    <Compile Include="Translation\TextItem.vb" />
+    <Compile Include="Windows\About.Designer.vb">
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\About.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_frameViewer.Designer.vb">
-      <DependentUpon>ui_frameViewer.vb</DependentUpon>
+    <Compile Include="Windows\FindReplaceMark.Designer.vb">
+      <DependentUpon>FindReplaceMark.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_frameViewer.vb">
+    <Compile Include="Windows\FindReplaceMark.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_go_to.Designer.vb">
-      <DependentUpon>ui_go_to.vb</DependentUpon>
+    <Compile Include="Windows\FrameSorter.Designer.vb">
+      <DependentUpon>FrameSorter.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_go_to.vb">
+    <Compile Include="Windows\FrameSorter.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_id_changer.Designer.vb">
-      <DependentUpon>ui_id_changer.vb</DependentUpon>
+    <Compile Include="Windows\FramesReformatting.Designer.vb">
+      <DependentUpon>FramesReformatting.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_id_changer.vb">
+    <Compile Include="Windows\FramesReformatting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_search.Designer.vb">
-      <DependentUpon>ui_search.vb</DependentUpon>
+    <Compile Include="Windows\ErrorList.Designer.vb">
+      <DependentUpon>ErrorList.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_search.vb">
+    <Compile Include="Windows\ErrorList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_search_multi.Designer.vb">
-      <DependentUpon>ui_search_multi.vb</DependentUpon>
+    <Compile Include="Windows\FrameViewer.Designer.vb">
+      <DependentUpon>FrameViewer.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_search_multi.vb">
+    <Compile Include="Windows\FrameViewer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_settings.Designer.vb">
-      <DependentUpon>ui_settings.vb</DependentUpon>
+    <Compile Include="Windows\GoTo.Designer.vb">
+      <DependentUpon>GoTo.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_settings.vb">
+    <Compile Include="Windows\GoTo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_tag_adder.Designer.vb">
-      <DependentUpon>ui_tag_adder.vb</DependentUpon>
+    <Compile Include="Windows\AutoIDChanger.Designer.vb">
+      <DependentUpon>AutoIDChanger.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_tag_adder.vb">
+    <Compile Include="Windows\AutoIDChanger.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces\ui_unused_frames.Designer.vb">
-      <DependentUpon>ui_unused_frames.vb</DependentUpon>
+    <Compile Include="Windows\TagAdder.Designer.vb">
+      <DependentUpon>TagAdder.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_unused_frames.vb">
+    <Compile Include="Windows\TagAdder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\UnusedIDs.Designer.vb">
+      <DependentUpon>UnusedIDs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UnusedIDs.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -206,50 +277,75 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="interfaces\ui_textEditor.Designer.vb">
-      <DependentUpon>ui_textEditor.vb</DependentUpon>
+    <Compile Include="Translation\Creator.vb" />
+    <Compile Include="Windows\Settings\SettingsF.Designer.vb">
+      <DependentUpon>SettingsF.vb</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\ui_textEditor.vb">
+    <Compile Include="Windows\Settings\SettingsF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Settings\UC_FrameViewer.Designer.vb">
+      <DependentUpon>UC_FrameViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\UC_FrameViewer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Settings\UC_General.Designer.vb">
+      <DependentUpon>UC_General.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\UC_General.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Settings\UC_TextEditor.Designer.vb">
+      <DependentUpon>UC_TextEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\UC_TextEditor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\TextEditor.Designer.vb">
+      <DependentUpon>TextEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TextEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\TextEditor_Public.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="index.resx">
-      <DependentUpon>index.vb</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_about.resx">
-      <DependentUpon>ui_about.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\About.resx">
+      <DependentUpon>About.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_frames_reformatting.resx">
-      <DependentUpon>ui_frames_reformatting.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\FindReplaceMark.resx">
+      <DependentUpon>FindReplaceMark.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_error_list.resx">
-      <DependentUpon>ui_error_list.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\FrameSorter.resx">
+      <DependentUpon>FrameSorter.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_frameViewer.resx">
-      <DependentUpon>ui_frameViewer.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\FramesReformatting.resx">
+      <DependentUpon>FramesReformatting.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_go_to.resx">
-      <DependentUpon>ui_go_to.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\ErrorList.resx">
+      <DependentUpon>ErrorList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_id_changer.resx">
-      <DependentUpon>ui_id_changer.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\FrameViewer.resx">
+      <DependentUpon>FrameViewer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_search.resx">
-      <DependentUpon>ui_search.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\GoTo.resx">
+      <DependentUpon>GoTo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_search_multi.resx">
-      <DependentUpon>ui_search_multi.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\AutoIDChanger.resx">
+      <DependentUpon>AutoIDChanger.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_settings.resx">
-      <DependentUpon>ui_settings.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\TagAdder.resx">
+      <DependentUpon>TagAdder.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_tag_adder.resx">
-      <DependentUpon>ui_tag_adder.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_unused_frames.resx">
-      <DependentUpon>ui_unused_frames.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\UnusedIDs.resx">
+      <DependentUpon>UnusedIDs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -257,8 +353,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces\ui_textEditor.resx">
-      <DependentUpon>ui_textEditor.vb</DependentUpon>
+    <EmbeddedResource Include="Windows\Settings\SettingsF.resx">
+      <DependentUpon>SettingsF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Settings\UC_FrameViewer.resx">
+      <DependentUpon>UC_FrameViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Settings\UC_General.resx">
+      <DependentUpon>UC_General.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Settings\UC_TextEditor.resx">
+      <DependentUpon>UC_TextEditor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Texteditor.resx">
+      <DependentUpon>TextEditor.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +420,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_16-colour2.ico" />
+    <None Include="Resources\weapon1.png" />
+    <None Include="Resources\weapon0.png" />
+    <None Include="Resources\weapon_normal.txt" />
+    <None Include="Resources\weapon_heavy.txt" />
+    <None Include="Resources\icon_red.ico" />
+    <None Include="Resources\icon_16-colour2.ico" />
+    <None Include="Resources\instruction_function.png" />
+    <None Include="Resources\manual_bookmark.png" />
+    <None Include="Resources\indention.gif" />
+    <None Include="Resources\reformatting_reset_frame.txt" />
+    <None Include="Resources\reformatting_example.txt" />
+    <None Include="Resources\icon_splitH.png" />
+    <None Include="Resources\s.png" />
+    <None Include="Resources\icon_delete1.png" />
+    <Content Include="Resources\syntax_special.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Resources\icon_vsplit.png" />
+    <None Include="Resources\syntax.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\icon_start.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\icon_error.png" />
@@ -319,17 +448,21 @@
     <None Include="Resources\icon_mirror.png" />
     <None Include="Resources\icon_recent.png" />
     <None Include="Resources\icon_character.png" />
-    <None Include="Resources\icon_delete1.png" />
     <None Include="Resources\icon_collapse.png" />
     <None Include="Resources\icon_expand.png" />
     <None Include="Resources\icon_delete.png" />
     <None Include="Resources\icon_select_all.png" />
     <None Include="Resources\icon_paste_cool.png" />
-    <None Include="Resources\arrow_bottom.png" />
     <None Include="Resources\icon_search.png" />
-    <None Include="Resources\weapon0.bmp" />
-    <None Include="Resources\s.bmp" />
     <None Include="Resources\bg_transparent.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

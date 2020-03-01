@@ -1,0 +1,36 @@
+<frame> $ %FRAMENAME%
+   pic: $  state: $  wait: $  next: $  dvx: $  dvy: $  dvz: $  centerx: $  centery: $  %others%
+%OPOINT%
+%CPOINT%
+%BPOINT%
+%WPOINT%
+%ITRS%
+%BODIES%
+%othersPoints%
+<frame_end>
+[][][]
+   bdy:
+      kind: $  x: $  y: $  w: $  h: $ %others%
+   bdy_end:
+[][][]
+   itr:
+      kind: $  x: $  y: $  w: $  h: $  
+      catchingact: $ $  caughtact: $ $ %others%
+   itr_end:
+[][][]
+   bpoint:
+      x: $  y: $ %others%
+   bpoint_end:
+[][][]
+   wpoint:
+      kind: $  x: $  y: $  weaponact: $  attacking: $  cover: $  dvx: $  dvy: $  dvz: $ %others%
+   wpoint_end:
+[][][]
+   cpoint:
+      kind: $  x: $  y: $
+      vaction: $  throwvz: $  hurtable: $ throwinjury: $ decrease: $ %others% 
+   cpoint_end:
+[][][]
+   opoint:
+      kind: $  x: $  y: $  action: $  dvx: $  dvy: $  oid: $  facing: $ %others%
+   opoint_end:

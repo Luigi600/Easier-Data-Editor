@@ -26,31 +26,63 @@ D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Ea
 D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Easier LF-Editor - Data-Editor\obj\Release\Easier_Data_Editor.ui_frames_reformatting.resources
 D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Easier LF-Editor - Data-Editor\obj\Release\Easier_Data_Editor.ui_tag_adder.resources
 D:\Visual Studio\Visual Studio Projects (2017)\Easier LF-Editor - Data-Editor\Easier LF-Editor - Data-Editor\obj\Release\Easier_Data_Editor.ui_id_changer.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.exe.config
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.exe
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.pdb
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.index.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_about.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frames_reformatting.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_error_list.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frameViewer.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_go_to.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_id_changer.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_search.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_search_multi.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_settings.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_tag_adder.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_unused_frames.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.window_error.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.Resources.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_textEditor.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.GenerateResource.cache
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.CoreCompileInputs.cache
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.CopyComplete
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.exe
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.pdb
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.exe.config
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.exe
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.pdb
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\Easier Data-Editor.xml
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\ICSharpCode.AvalonEdit.dll
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\WeifenLuo.WinFormsUI.Docking.dll
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbprojAssemblyReference.cache
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.index.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_about.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frames_reformatting.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_error_list.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frameViewer.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_go_to.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_id_changer.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_search.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_settings.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_tag_adder.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_unused_frames.resources
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.Resources.resources
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_textEditor.resources
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.GenerateResource.cache
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.CoreCompileInputs.cache
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbproj.CopyComplete
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.exe
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.xml
 D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.pdb
-D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_search_multi.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\bin\Release\ScintillaNET.dll
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\bin\Release\ScintillaNET.pdb
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbprojAssemblyReference.cache
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_frameSorter.resources
+C:\Users\Leif-Kristof\Documents\VS_2017_Desktop\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ui_highlight.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\ScintillaNET.dll
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\ScintillaNET.pdb
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\WeifenLuo.WinFormsUI.Docking.pdb
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\bin\Release\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.pdb
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.Main.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.About.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.FrameSorter.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.FramesReformatting.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.ErrorList.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.FrameViewer.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.GoToWindow.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.AutoIDChanger.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.TagAdder.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.UnusedIDs.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.SettingsF.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.UC_FrameViewer.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.UC_General.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.UC_TextEditor.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.TextEditor.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier_Data_Editor.FindReplaceMark.resources
+D:\Visual Studio\Visual Studio Projects (2017)\Easier Data-Editor\Easier Data-Editor\obj\Release\Easier Data-Editor.vbprojAssemblyReference.cache

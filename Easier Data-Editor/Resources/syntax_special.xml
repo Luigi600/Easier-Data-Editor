@@ -1,0 +1,197 @@
+<SyntaxDefinition name="LF2-Data" extensions=".dat">
+  <Default forecol="Black" backcol="White" />
+  <Regex name="CommentOut" forecol="DimGray" pattern="#.*" />
+  <Regex name="File" forecol="#FF008E61" pattern="((?&lt;=\s+|^)[A-Za-z_\-\/\\0-9]+)\.(?=.*[a-zA-Z])[^\s]{2,4}" />
+  <Regex name="BitmapFile" forecol="DarkRed" pattern="file\((?=\s*\d+\s*\-\s*\d+\s*\):)|(?&lt;=file\(\s*\d+\s*\-\s*\d+\s*)\):" />
+  <Regex name="FileNumbers" forecol="Fuchsia" pattern="(?&lt;=file\()\s*\d+\s*\-\s*\d+\s*(?=\):)" />
+  <Regex name="NumberDataSpecial" forecol="Fuchsia" pattern="(?&lt;=\d+\s*~\s*)\d+" example="100~199" />
+  <Regex name="Tilde" forecol="DarkRed" bold="1" pattern="(?&lt;=\d+\s*)~(?=\s*\d+)" example="100~199" />
+  <Regex name="TildeArgs" forecol="Gray" italic="1" pattern="(?&lt;=\d+\s*~\s*\d+\s+)(\w+\s*){1,2}" example="100~199 drop weapon" />
+  <Regex name="FrameName" forecol="Green" bold="1" pattern="(?&lt;=\&lt;frame\&gt;\s*\d+\s+)[^\s\n\r]+" />
+
+  <Regex name="SpecialFeature" forecol="#0094FF" bold="1" italic="1" pattern="(CEILING|FLOOR|TRUNCATE)\(.*?\)" />
+
+  <Regex name="SpecialFeature" forecol="#0094FF" bold="1" pattern="(LIMIT\(\s*\d+\s*;\s*\d+\s*\)|(MIN|MAX)\(\s*\d+\s*\))([+\-/*^()\d]+)*" />
+  <Regex name="SpecialFeature" forecol="#0094FF" bold="1" pattern="(([+\-/*^()\d]+)+(\$|\?)([+\-/*^()\d]+)*|([+\-/*^()\d]+)*(\$|\?)([+\-/*^()\d]+)+)" />
+  <!--
+  <Regex name="SpecialFeatureLimit" forecol="#0094FF" bold="1" pattern="(LIMIT\((?=.*?;.*?\))|(MIN|MAX)\((?=.*\)))" />
+  <Regex name="SpecialFeatureLimitTset" forecol="#0094FF" bold="1" pattern="(?&lt;=LIMIT|MIN|MAX\().*?(?=\))" />
+  <Regex name="SpecialFeatureLimitEND" forecol="#0094FF" bold="1" pattern="((?&lt;=LIMIT\(.*?;.*?)\)|(?&lt;=(MIN|MAX)\(.*\)))" />
+-->
+ 
+  <SingleWordRegex forecol="Fuchsia">
+    <Pattern example="3.1415">[-]?(\d+(?:(\.|\,)\d+)?)</Pattern>
+    <Pattern example=".1415">[-]?(\.|\,)\d+</Pattern>
+  </SingleWordRegex>
+
+	<Keywords forecol="Fuchsia">
+		<Word>$</Word>
+		<Word>?</Word>
+	</Keywords>
+
+  <Keywords forecol="Green" italic="1">
+    <Word>%FRAMENAME%</Word>
+    <Word>%BODIES%</Word>
+    <Word>%ITRS%</Word>
+    <Word>%WPOINT%</Word>
+    <Word>%BPOINT%</Word>
+    <Word>%CPOINT%</Word>
+    <Word>%OPOINT%</Word>
+    <Word>%othersPoints%</Word>
+    <Word>%others%</Word>
+  </Keywords>
+
+  <Keywords forecol="DarkRed">
+    <Word>aaction:</Word>
+    <Word>act:</Word>
+    <Word>action:</Word>
+    <Word>arest:</Word>
+    <Word>attacking:</Word>
+    <Word>backhurtact:</Word>
+    <Word>bdefend:</Word>
+    <Word>bound:</Word>
+    <Word>c1:</Word>
+    <Word>c2:</Word>
+    <Word>catchingact:</Word>
+    <Word>caughtact:</Word>
+    <Word>cc:</Word>
+    <Word>centery:</Word>
+    <Word>col:</Word>
+    <Word>cover:</Word>
+    <Word>dvx:</Word>
+    <Word>dvy:</Word>
+    <Word>dvz:</Word>
+    <Word>centerx:</Word>
+    <Word>dash_height</Word>
+    <Word>dash_distance</Word>
+    <Word>dash_distancez</Word>
+    <Word>decrease:</Word>
+    <Word>dircontrol:</Word>
+    <Word>entry:</Word>
+    <Word>fall:</Word>
+    <Word>facing:</Word>
+    <Word>file:</Word>
+    <Word>fronthurtact:</Word>
+    <Word>h:</Word>
+    <Word>head:</Word>
+    <Word>heavy_running_speed</Word>
+    <Word>heavy_running_speedz</Word>
+    <Word>heavy_walking_speed</Word>
+    <Word>heavy_walking_speedz</Word>
+    <Word>height:</Word>
+    <Word>hit_a:</Word>
+    <Word>hit_d:</Word>
+    <Word>hit_j:</Word>
+    <Word>hit_Da:</Word>
+    <Word>hit_Dj:</Word>
+    <Word>hit_Fa:</Word>
+    <Word>hit_Fj:</Word>
+    <Word>hit_ja:</Word>
+    <Word>hit_Ua:</Word>
+    <Word>hit_Uj:</Word>
+    <Word>hp:</Word>
+    <Word>hurtable:</Word>
+    <Word>id:</Word>
+    <Word>injury:</Word>
+    <Word>jaction:</Word>
+    <Word>join:</Word>
+    <Word>jump_height</Word>
+    <Word>jump_distance</Word>
+    <Word>jump_distancez</Word>
+    <Word>kind:</Word>
+    <Word>loop:</Word>
+    <Word>mp:</Word>
+    <Word>name:</Word>
+    <Word>music:</Word>
+    <Word>next:</Word>
+    <Word>oid:</Word>
+    <Word>pic:</Word>
+    <Word>ratio:</Word>
+    <Word>rect:</Word>
+    <Word>reserve:</Word>
+    <Word>running_frame_rate</Word>
+    <Word>running_speed</Word>
+    <Word>running_speedz</Word>
+    <Word>row:</Word>
+    <Word>rowing_height</Word>
+    <Word>rowing_distance</Word>
+    <Word>shadow:</Word>
+    <Word>shadowsize:</Word>
+    <Word>small:</Word>
+    <Word>sound:</Word>
+    <Word>state:</Word>
+    <Word>taction:</Word>
+    <Word>transparency:</Word>
+    <Word>times:</Word>
+    <Word>throwinjury:</Word>
+    <Word>throwvx:</Word>
+    <Word>throwvy:</Word>
+    <Word>throwvz:</Word>
+    <Word>vaction:</Word>
+    <Word>vrest:</Word>
+    <Word>w:</Word>
+    <Word>wait:</Word>
+    <Word>walking_frame_rate</Word>
+    <Word>walking_speed</Word>
+    <Word>walking_speedz</Word>
+    <Word>weaponact:</Word>
+    <Word>weapon_broken_sound:</Word>
+    <Word>weapon_drop_sound:</Word>
+    <Word>weapon_drop_hurt:</Word>
+    <Word>weapon_hit_sound:</Word>
+    <Word>weapon_hp:</Word>
+    <Word>width:</Word>
+    <Word>x:</Word>
+    <Word>y:</Word>
+    <Word>zboundary:</Word>
+    <Word>zwidth:</Word>
+    <Word>type:</Word>
+  </Keywords>
+
+  <Keywords forecol="MediumBlue">
+    <Word>&lt;bmp_begin&gt;</Word>
+    <Word>&lt;bmp_end&gt;</Word>
+    <Word>&lt;end&gt;</Word>
+    <Word>&lt;frame&gt;</Word>
+    <Word>&lt;frame_end&gt;</Word>
+    <Word>&lt;phase&gt;</Word>
+    <Word>&lt;phase_end&gt;</Word>
+    <Word>&lt;stage&gt;</Word>
+    <Word>&lt;stage_end&gt;</Word>
+    <Word>&lt;weapon_strength_list&gt;</Word>
+    <Word>&lt;weapon_strength_list_end&gt;</Word>
+    <Word>&lt;object&gt;</Word>
+    <Word>&lt;object_end&gt;</Word>
+    <Word>&lt;file_editing&gt;</Word>
+    <Word>&lt;file_editing_end&gt;</Word>
+    <Word>&lt;background&gt;</Word>
+    <Word>&lt;background_end&gt;</Word>
+  </Keywords>
+
+  <Keywords forecol="ForestGreen">
+    <Word>bdy:</Word>
+    <Word>bdy_end:</Word>
+    <Word>bpoint:</Word>
+    <Word>bpoint_end:</Word>
+    <Word>cpoint:</Word>
+    <Word>cpoint_end:</Word>
+    <Word>itr:</Word>
+    <Word>itr_end:</Word>
+    <Word>layer:</Word>
+    <Word>layer_end</Word>
+    <Word>opoint:</Word>
+    <Word>opoint_end:</Word>
+    <Word>wpoint:</Word>
+    <Word>wpoint_end:</Word>
+  </Keywords>
+
+  <Keywords forecol="DarkGreen">
+    <Word>&lt;soldier&gt;</Word>
+    <Word>&lt;boss&gt;</Word>
+  </Keywords>
+
+  <Keywords forecol="DarkRed" bold="1">
+    <Word>effect:</Word>
+    <Word>when_clear_goto_phase:</Word>
+  </Keywords>
+</SyntaxDefinition>

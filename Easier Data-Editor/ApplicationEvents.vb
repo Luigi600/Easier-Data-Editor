@@ -1,9 +1,4 @@
-﻿Imports System.Threading
-Imports System.Xml
-Imports ICSharpCode.AvalonEdit.Highlighting
-Imports Microsoft.VisualBasic.ApplicationServices
-
-'------------------------------------------'
+﻿'------------------------------------------'
 '---------Created by Lui's Studio----------'
 '-------(http://www.lui-studio.net/)-------'
 '------------------------------------------'
@@ -12,7 +7,8 @@ Imports Microsoft.VisualBasic.ApplicationServices
 
 '<project>Easier Data-Editor (STM93 Version)</project>
 '<author>Luigi600</author>
-'<summary> Main-Class: Loads in single instance, loads options/settings, set autocomplete list </summary>
+Imports System.Threading
+Imports Microsoft.VisualBasic.ApplicationServices
 
 Namespace My
     ' Für MyApplication sind folgende Ereignisse verfügbar:
@@ -24,12 +20,14 @@ Namespace My
     Partial Friend Class MyApplication
         Shared mutex_ As New Mutex(True, "Easier_Data_Editor") '{8F6F0AC4-B9A1-45fd-A8CF-72F04E6BDE8F}")
 
-
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
-            If Not IO.Directory.Exists(appFolder) Then
-                IO.Directory.CreateDirectory(appFolder)
+            If Not IO.Directory.Exists(AppFolder) Then
+                IO.Directory.CreateDirectory(AppFolder)
             End If
 
+            If IO.Directory.Exists(LanguageDirectory) Then
+                SetLanguageCheckerEvents()
+            End If
 
             If mutex_.WaitOne(TimeSpan.Zero, True) Then
                 mutex_.ReleaseMutex()
@@ -53,7 +51,7 @@ Namespace My
                     For Each arg As String In Application.CommandLineArgs
                         Try
                             If IO.Path.GetExtension(arg).ToLower.Substring(1).Equals("dat") Or IO.Path.GetExtension(arg).ToLower.Substring(1).Equals("txt") Then
-                                class_singleInstance.SendMessage(found_pro.MainWindowHandle, class_singleInstance.WM_SETTEXT, 0, arg)
+                                SingleInstance.SendMessage(found_pro.MainWindowHandle, SingleInstance.WM_SETTEXT, 0, arg)
                             End If
                         Catch ex As Exception
                         End Try
@@ -64,180 +62,88 @@ Namespace My
 
 
 
-            syntaxHighlighting = HighlightingManager.Instance.GetDefinition("LF2-Data")
-            If IO.File.Exists(IO.Path.Combine(appFolder, "syntax.xshd")) Then
+            If IO.File.Exists(IO.Path.Combine(AppFolder, "syntax.xml")) Then
                 Try
-                    Dim customHighlighting As IHighlightingDefinition = Nothing
-                    Using reader As New XmlTextReader(IO.Path.Combine(appFolder, "syntax.xshd"))
-                        customHighlighting = Xshd.HighlightingLoader.Load(reader, HighlightingManager.Instance)
-                    End Using
-                    If Not IsNothing(customHighlighting) Then
-                        HighlightingManager.Instance.RegisterHighlighting("CustomData", New String() {".dat"}, customHighlighting)
-                        syntaxHighlighting = HighlightingManager.Instance.GetDefinition("CustomData")
-                    End If
+                    CustomSyntax = New Syntax(IO.File.ReadAllText(IO.Path.Combine(AppFolder, "syntax.xml")))
                 Catch ex As Exception
                 End Try
             End If
 
+            TextEditor.Prepare()
+            FrameViewer.Prepare()
+            App.SearchWindow.Prepare()
+            SetDebug()
 
-            createAutoList()
 
+            'Dim test As New Translation.Creator("English", "Luigi600")
+            'Dim txt As New TextEditor("", True)
+            'test.GetXMLFromWindow(New SettingsF)
+            'test.GetXMLFromUserControl(New UC_FrameViewer(App.Settings))
+            'test.GetXMLFromUserControl(New UC_General(App.Settings))
+            'test.GetXMLFromUserControl(New UC_TextEditor(App.Settings))
 
+            'test.GetXMLFromWindow(New About)
+            'test.GetXMLFromWindow(New AutoIDChanger(txt))
+            'test.GetXMLFromWindow(New ErrorList)
+            'test.GetXMLFromWindow(New FindReplaceMark)
+            'test.GetXMLFromWindow(New FrameSorter(New List(Of TextEditor) From {txt}, 0))
+            'test.GetXMLFromWindow(New FramesReformatting(New List(Of TextEditor) From {txt}))
+            'test.GetXMLFromWindow(txt.Viewer)
+            'test.GetXMLFromWindow(New GoToWindow)
+            'test.GetXMLFromWindow(New TagAdder(txt))
+            'test.GetXMLFromWindow(txt)
+            'test.GetXMLFromWindow(New UnusedIDs)
 
-            loadFromXMLFile(IO.Path.Combine(appFolder, "settings.xml"))
+            'test.GetXMLFromWindow(New Main)
 
-            shadow.MakeTransparent(Color.Black)
-            Weapon = New class_weapon
+            'test.Close(IO.Path.Combine(AppFolder, "languages", "autoCreation_5.xml"))
         End Sub
 
         Private Sub MyApplication_Shutdown(sender As Object, e As EventArgs) Handles Me.Shutdown
-            If recentFiles.Count > 0 And recentFileWasChanged Then
-                saveRecentFiles()
-            End If
+            App.Settings.Close()
         End Sub
 
 
+        Dim lastError As New Date
+        Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
+            MessageBox.Show(MainForm, "Exception!" & vbNewLine & e.Exception.ToString, "Easier Data-Editor (STM93 Version) - Exception", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.ExitApplication = Not (Date.Now - lastError).TotalSeconds > 5.0
+            If e.ExitApplication And TypeOf (MainForm) Is Main Then
+                CType(MainForm, Main).CloseException()
+            End If
 
+            lastError = Date.Now
+        End Sub
 
-        Private Sub createAutoList()
-            Dim input As String = "aaction:
-act:
-action:
-arest:
-attacking:
-backhurtact:
-bdefend:
-bound:
-c1:
-c2:
-catchingact:
-caughtact:
-cc:
-centery:
-col:
-cover:
-dvx:
-dvy:
-dvz:
-centerx:
-dash_height
-dash_distance
-dash_distancez
-decrease:
-dircontrol:
-entry:
-fall:
-facing:
-file:
-fronthurtact:
-head:
-heavy_running_speed
-heavy_running_speedz
-heavy_walking_speed
-heavy_walking_speedz
-height:
-hit_a:
-hit_d:
-hit_j:
-hit_Da:
-hit_Dj:
-hit_Fa:
-hit_Fj:
-hit_ja:
-hit_Ua:
-hit_Uj:
-hp:
-hurtable:
-id:
-injury:
-jaction:
-join:
-jump_height
-jump_distance
-jump_distancez
-kind:
-loop:
-mp:
-name:
-music:
-next:
-oid:
-pic:
-ratio:
-rect:
-reserve:
-running_frame_rate
-running_speed
-running_speedz
-row:
-rowing_height
-rowing_distance
-shadow:
-shadowsize:
-small:
-sound:
-state:
-taction:
-transparency:
-times:
-throwinjury:
-throwvx:
-throwvy:
-throwvz:
-vaction:
-vrest:
-wait:
-walking_frame_rate
-walking_speed
-walking_speedz
-weaponact:
-weapon_broken_sound:
-weapon_drop_sound:
-weapon_drop_hurt:
-weapon_hit_sound:
-weapon_hp:
-width:
-zboundary:
-zwidth:
-<bmp_begin>
-<bmp_end>
-<end>
-<frame>
-<frame_end>
-<phase>
-<phase_end>
-<stage>
-<stage_end>
-<weapon_strength_list>
-<weapon_strength_list_end>
-bdy:
-bdy_end:
-bpoint:
-bpoint_end:
-cpoint:
-cpoint_end:
-itr:
-itr_end:
-layer:
-layer_end
-opoint:
-opoint_end:
-wpoint:
-wpoint_end:
-<soldier>
-<boss>
-effect:"
+        Public Sub SetLanguageCheckerEvents()
+            App.LanguageChecker = New IO.FileSystemWatcher With {
+                .Path = LanguageDirectory,
+                .Filter = "*.xml",
+                .EnableRaisingEvents = True,
+                .NotifyFilter = IO.NotifyFilters.FileName Or IO.NotifyFilters.LastWrite Or IO.NotifyFilters.Size Or IO.NotifyFilters.CreationTime
+            }
+            AddHandler App.LanguageChecker.Renamed, AddressOf LanguageChecker
+            AddHandler App.LanguageChecker.Changed, AddressOf LanguageChecker
+            AddHandler App.LanguageChecker.Created, AddressOf LanguageChecker
+            AddHandler App.LanguageChecker.Deleted, AddressOf LanguageChecker
+            'AddHandler App.LanguageChecker.Error, AddressOf LanguageChecker
+        End Sub
 
-            For Each line As String In Split(input, ControlChars.Lf)
-                line = line.Trim
-                If Not String.IsNullOrWhiteSpace(line) Then
-                    If line.Length > 2 Then
-                        If Not listOfAutoItems.Contains(line) Then
-                            listOfAutoItems.Add(line)
-                        End If
-                    End If
-                End If
-            Next
+        Private Sub LanguageChecker(sender As Object, e As IO.FileSystemEventArgs)
+            If TypeOf MainForm Is Main Then
+                CType(MainForm, Main).ChangeLanguages(e)
+            End If
+
+            'Dim currentLang As String = Translation.Languages(Translation.SelectedLanguage).FileName
+
+            'If e.ChangeType = WatcherChangeTypes.Created Then
+            '    For Each file As String In IO.Directory.GetFiles(langDir).Where(Function(x) IO.Path.GetExtension(x).ToLower.Equals(".xml")).ToList
+            '        Try
+            '            Languages.Add(New Language(file))
+            '        Catch ex As Exception
+            '        End Try
+            '    Next
+            'End If
         End Sub
     End Class
 End Namespace

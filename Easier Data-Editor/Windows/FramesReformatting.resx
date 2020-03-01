@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Rtb_Commands.Text" xml:space="preserve">
+    <value>"$" symbols a value of a tag/attribute. That means "$" is the placeholder for the value. Attributes with more an as one value doesn't need multiple "placeholders" (ex. caughtact). In the case that the placeholder is not exist, it handles the tag name as normal text. That means its writes the text into ALL frames.
+
+ATTENTION: the handling of comments are not possible directly. You can write down all attributes and use "%others%" for comments.
+
+SPECIAL FUNCTIONS:
+"?" is a "placeholder" like "$". But with the addition that its sets value only if it not equals 0. In other words, all attributes which have the value "0" will remove.
+
+%...% determines the position. Example left side: %OPOINT% means that the program sets on this place the substructure (right side) of object-point. So it is possible to change the order of the (o-, b-, c-, w-)point, as well as itrs and bodies. Should not exist %OPOINT%, it uses the position "%othersPoints%".
+Inside a substructure and direct frames attributes: "%others%". It is not necessary to write down all attributes. Finds the program not the right position, it sets the attribute name with value to the position of "%others%".
+
+Mathematical operations: it is also possible to change values of one or more attributes with this tool. Example "pic: $+10" means that in each frame the pic ID will increase by 10. This function supports +, -, /, *, (, ), and ^
+It is necessary to write all operations of one value without space. "10+$+5" is valid, but "10   + $  + 2" not!
+
+MIN(X) sets a lower bound. Example: "wait: MIN(1)" sets value of wait in each frame which is 0 or negative (wtf) to 1. Otherwise it keeps the old value.
+
+MAX(X) sets a upper bound. Example "wait: MAX(10)" sets value of wait in each frame which is higher than 10 to 10. Otherwise it keeps the old value.
+
+LIMIT(X; Y) is the combination of MIN and MAX. It sets a lower and upper bound of a value. Example "centerx: LIMIT(10; 90)" sets the centerx value in each frame to 10, when the original centerx value lower than 10. If the original value higher than 90 it sets to 90. All values between 10-90 will keep.
+
+CEILING(X) supports the upper bound for floating point figure (!). Yes right, floating point. Example: "pic: CEILING($/10)" divides the pic value to 10. 1.2 will round to 2. -5.4 rounds to -5 and so on...
+
+FLOOR(X) supports the lower bound for floating point figure. Example: "pic: FLOOR($/10)" divides the pic value to 10 and rounds example 1.8 to 1 and so on...
+
+TRUNCATE(X) supports the truncate of floating point figure. 10.5 will round to 10. But 10.2 and 10.9 rounds to 10.5 as well.
+
+ATTENTION 2: Linking of commands like "MIN(MAX(5))" are not possible. As well the using of placeholders inside a command like "MIN($)" (&lt;- makes no sense). Mathematical operations inside a command is also not possible, example: LIMIT(2*2; 10). The only one which are support mathematical operations inside the command are: FLOOR, TRUNCATE, CEILING. They support also space between the operations AND "placeholders" like "$".</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAQAQEAQAAEABABoCgAARgAAADAwEAABAAQAaAYAAK4KAAAgIBAAAQAEAOgCAAAWEQAAEBAQAAEA
+        BAAoAQAA/hMAACgAAABAAAAAgAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACA
+        gADAwMAAAP//AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzMzMz
+        MzMzMzMRETMzMzMzMzMzVVUREVVVVVVVVQAzMzMzMzMzMzMzMxERMzMzMzMzMzNVVRERVVVVVVVVADMz
+        MzMzMzMzMzMzEREzMzMzMzMzMzMzERFVVVVVVVUAMzMzMzMzMzMzMzMRETMzMzMzMzMzMzMREVVVVVVV
+        VQAzMzMzMzMzMzMzERERMzMiIiIiIjMzMxERM1VVM1UAADMzMzMzMzMzMzMREREzMyIiIiIiMzMzEREz
+        VVUzVQAAADMzMzMzMzMzMxERIiIiIiIiIiIiIjMRETNVVQAAAAAAMzMzMzMzMzMzEREiIiIiIiIiIiIi
+        MxERM1VVAAAAAAAAMzMzMzMzMxERIiIiIiIiREREREQiERFVVQAAAAAAAAAzMzMzMzMzEREiIiIiIiJE
+        RERERCIREVVVAAAAAAAAAAAAMzMzMzMRESIiIiIiIkRERERERCIRVQAAAAAAAAAAAAAzMzMzMxERIiIi
+        IiIiREREREREIhFVAAAAAAAAAAAAAAAzMzMAACIiIiIiIkRERCIiREQiAAAAAAAAAAAAAAAAADMzMwAA
+        IiIiIiIiREREIiJERCIAAAAAAAAAAAAAAAAAAAAAAAAiIiIiIiJERCIiIkRERCIAAAAAAAAAAAAAAAAA
+        AAAAACIiIiIiIkREIiIiREREIgAAAAAAAAAAAAAAAAAAAAAAIiIiIiIiRERERCJEREQiAAAAAAAAAAAA
+        AAAAAAAAAAAiIiIiIiJEREREIkRERCIAAAAAAAAAAAAAAAAAAAAiIiIiIiIiREREREQiRERERAAAAAAA
+        AAAAAAAAAAAAACIiIiIiIiJERERERCJEREREAAAAAAAAAAAAAAAAAAAiIiIAACJEVQAAVUREREREAFUi
+        AAAAAAAAAAAAAAAAACIiIgAAIkRVAABVREREREQAVSIAAAAAAAAAAAAAAAAAIiIiAAAiVVUAAABERERE
+        AABEIgAAAAAAAAAAAAAAAAAiIiIAACJVVQAAAEREREQAAEQiAAAAAAAAAAAAAAAAACIiIgAAACJEAAAA
+        AEREAAAAAAAAAAAAAAAAAAAAAAAAIiIiAAAAIkQAAAAAREQAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAA
+        AAAiIkREREREAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAACIiREREREQAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAACIiIiJEREREREQiAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIkRERERERCIAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAIiIiIiIiIiIiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiIiIiIiIAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAACIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIiIiIiIiAAAAAAAA
+        AAAAAAAAAAAAAAAAACIiAAAAIiIiIgAiIiIAAAAAAAAAAAAAAAAAAAAAAAAAIiIAAAAiIiIiACIiIgAA
+        AAAAAAAAAAAAAAAAAAAAACIiIiIAAAAiAAAAAAAAACIiIgAAAAAAAAAAAAAAAAAAIiIiIgAAACIAAAAA
+        AAAAIiIiAAAAAAAAAAAAAAAiIiIiIiIiAAAAAAAAAAAAAAAiIiIiIgAAAAAAAAAAACIiIiIiIiIAAAAA
+        AAAAAAAAACIiIiIiAAAAAAAAIiIiIiIiIiIiIiIAAAAAAAAAIiIiIiIiIiIAAAAAAAAiIiIiIiIiIiIi
+        IgAAAAAAAAAiIiIiIiIiIgAAAAAAIiIiIiIiIiIiIiIiIiIiIiIAACIiIiIiIiIiAAAAAAAiIiIiIiIi
+        IiIiIiIiIiIiIgAAIiIiIiIiIiIAAAAAACIiIiIiIiIiIiIiIiIiIiIiAAAiIiIiIiIiIiIAAAAAIiIi
+        IiIiIiIiIiIiIiIiIiIAACIiIiIiIiIiIgAAAAAAIiIiIiIiIiIiIiIiIiIiIgAiIiIiIiIiIiIAAAAA
+        AAAiIiIiIiIiIiIiIiIiIiIiACIiIiIiIiIiIgAAAAAAACIiIiIiIiIiIiIiIiIiIgAAIiIiIiIiIiIi
+        AAAAAAAAIiIiIiIiIiIiIiIiIiIiAAAiIiIiIiIiIiIAAAAAAAAAIiIiIiIiIiIiIiIiIiIAACIiIiIi
+        IiIiAAAAAAAAAAAiIiIiIiIiIiIiIiIiIgAAIiIiIiIiIiIAAAAAAAAAACIiIiIiIiIiIiIiIiIiAAAi
+        IiIiIiIiIgAAAAAAAAAAIiIiIiIiIiIiIiIiIiIAACIiIiIiIiIiAAAAAAAAAAAAIiIiIiIiIiIiIiIi
+        IgAAIiIiIiIiIgAAAAAAAAAAAAAiIiIiIiIiIiIiIiIiAAAiIiIiIiIiAAAAAAAAAAAAAAAiIiIiIiIi
+        IiIiIiIAIiIiIiIiIgAAAAAAAAAAAAAAACIiIiIiIiIiIiIiIgAiIiIiIiIiAAAAAAAAAAAAAAAAAAAi
+        IiIiIiIiIiIiAAAAACIiAAAAAAAAAAAAAAAAAAAAACIiIiIiIiIiIiIAAAAAIiIAAAAAAAAAAAAAAAAA
+        AAAAAAAiIiIiIiIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIiIiIiIgAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAwAAAAAAAAADAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAPAAAAAAAAAA/AAAAAAAAA/8AA
+        AAAAAAD/8AAAAAAAA//wAAAAAAAD//8AAAAAAA///wAAAAAAD///wPAAAAD////A8AAAAP/////wAAAA
+        P/////AAAAA/////8AAAAD/////wAAAAP////wAAAAA/////AAAAAD////wAAAAAD////AAAAAAP///w
+        AAAAAA////AAAAAAD///wAAAAAAD///AAAAAAAP//8AAAAAAAP//wAAAAAAA//8AAAAAAAA//wAAAAAA
+        AD//AAAAAAAAP/8AAAAAAAA//AAAAAAAAA/8AAAAAAAAD/wAAAAAAAAP/AAAAAAAAA/8AAAAAAAAD/wA
+        AAAAAAAP/AAAAAAAAA/8AAAAAAAAD/wAAAAAAAAP/AAAAAAAAA/8AAAAAAAAD/wAAAAAAAAP/AAAAAAA
+        AAP8AAAAAAAAA/8AAAAAAAAP/wAAAAAAAA//AAAAAAAAD/8AAAAAAAAP/8AAAAAAAD//wAAAAAAAP//A
+        AAAAAAA//8AAAAAAAD//8AAAAAAA///wAAAAAAD///wAAAAAA////AAAAAAD////wAAAAD/////AAAAA
+        P/////wAP////////AA//////////////////////////ygAAAAwAAAAYAAAAAEABAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAACAAACAgADAwMAAAP//AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAMzMzMzMzMzMREzMzMzMzNVURFVVVVVUAMzMzMzMzMzMREzMzMzMzNVUR
+        FVVVVVUAMzMzMzMzMzMREzMzMzMzMzMRFVVVVVUAMzMzMzMzMzEREzMiIiIiMzMREzVVNVAAMzMzMzMz
+        MzEREzMiIiIiMzMREzVVNVAAAzMzMzMzMzERIiIiIiIiIiMREzVVAAAAAAMzMzMzMREiIiIiJEREREIR
+        FVUAAAAAAAMzMzMzMREiIiIiJEREREIRFVUAAAAAAAAAMzMzMREiIiIiJEREREQiFVAAAAAAAAAAAzMz
+        AAIiIiIiREQiJEQiAAAAAAAAAAAAAzMzAAIiIiIiREQiJEQiAAAAAAAAAAAAAAAAAAIiIiIiREIiJERE
+        IAAAAAAAAAAAAAAAAAIiIiIiREREJEREIAAAAAAAAAAAAAAAAAIiIiIiREREJEREIAAAAAAAAAAAAAAA
+        IiIiIiJEREREJEREQAAAAAAAAAAAAAAiIiAAJEUABVREREQAUiAAAAAAAAAAAAAiIiAAJEUABVREREQA
+        UiAAAAAAAAAAAAAiIiAAJVUAAAREREAAQiAAAAAAAAAAAAAiIiAAAiQAAABEQAAAAAAAAAAAAAAAAAAi
+        IiAAAiQAAABEQAAAAAAAAAAAAAAAAAAAIAAAAAAAIiREREQAAAAAAAAAAAAAAAAAAAAAAAIiIiRERERE
+        IAAAAAAAAAAAAAAAAAAAAAIiIiREREREIAAAAAAAAAAAAAAAAAAAAAAiIiIiIiIiAAAAAAAAAAAAAAAA
+        AAAAAAAiIiIiIiIiAAAAAAAAAAAAAAAAAAAAAAAiIiIiIiIiAAAAAAAAAAAAAAAAAAAiIAAAIiIiAiIi
+        AAAAAAAAAAAAAAAAAAIiIiAAAiAAAAAAAiIiAAAAAAAAAAAAAAIiIiAAAiAAAAAAAiIiAAAAAAAAAAAi
+        IiIiIiAAAAAAAAAAAiIiIiAAAAAAIiIiIiIiIiIAAAAAAAIiIiIiIiAAAAAAIiIiIiIiIiIAAAAAAAIi
+        IiIiIiAAAAAiIiIiIiIiIiIiIiIiAAIiIiIiIiAAAAAiIiIiIiIiIiIiIiIiAAIiIiIiIiIAAAAiIiIi
+        IiIiIiIiIiIiAAIiIiIiIiIAAAAAIiIiIiIiIiIiIiIiAiIiIiIiIiAAAAAAIiIiIiIiIiIiIiIAAiIi
+        IiIiIiAAAAAAIiIiIiIiIiIiIiIAAiIiIiIiIiAAAAAAAiIiIiIiIiIiIiIAAiIiIiIiIAAAAAAAAiIi
+        IiIiIiIiIiIAAiIiIiIiIAAAAAAAAiIiIiIiIiIiIiIAAiIiIiIiIAAAAAAAAAIiIiIiIiIiIiIAAiIi
+        IiIiAAAAAAAAAAAiIiIiIiIiIiIAIiIiIiIAAAAAAAAAAAAiIiIiIiIiIiIAIiIiIiIAAAAAAAAAAAAA
+        AiIiIiIiIiIAAAAiIAAAAAAAAAAAAAAAAAAiIiIiIAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiIAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAH
+        AAAAAAAAAAcAAIAAAAAAPwAA4AAAAAD/AADgAAAAAP8AAPwAAAAB/wAA/g4AAA//AAD+DgAAD/8AAP/+
+        AAAH/wAA//4AAAf/AAD//gAAB/8AAP/wAAAH/wAA/8AAAAH/AAD/wAAAAf8AAP+AAAAB/wAA/gAAAAD/
+        AAD+AAAAAP8AAP4AAAAAPwAA/AAAAAAfAAD8AAAAAB8AAPwAAAAAHwAA8AAAAAAHAADwAAAAAAcAAPAA
+        AAAABwAA8AAAAAAHAADwAAAAAAcAAPAAAAAABwAA8AAAAAAHAADwAAAAAAcAAPAAAAAABwAA8AAAAAAD
+        AADwAAAAAAMAAPwAAAAABwAA/AAAAAAHAAD8AAAAAAcAAP4AAAAAHwAA/gAAAAAfAAD+AAAAAB8AAP+A
+        AAAAPwAA/8AAAAD/AAD/wAAAAP8AAP/4AAAH/wAA//8Af///AAD//wB///8AAP///////wAAKAAAACAA
+        AABAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAICAAMDAwAAA//8A////AAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMzMzETMzMzNVEVVVVQMzMzMzMx
+        EzMzMzMxFVVVUDMzMzMzERMyIiIzMRNVNQADMzMzMxEiIiIiIjETVQAAADMzMzESIiIkREQhFVAAAAAA
+        MzMxEiIiJEREQhUAAAAAAAMzACIiIkRCJEIAAAAAAAAAAAAiIiJEIiREIAAAAAAAAAAAIiIiREQkRCAA
+        AAAAAAAAIiIiJEREJERAAAAAAAAAAiIAJFAFRERAUgAAAAAAAAIiACVQAEREAEIAAAAAAAACIgACQAAE
+        QAAAAAAAAAAAACAAAAAiRERAAAAAAAAAAAAAAAAiIkRERCAAAAAAAAAAAAAAAiIiIiIAAAAAAAAAAAAA
+        AAIiIiIiAAAAAAAAAAAAAiAAIiICIgAAAAAAAAAAACIiAAIAAAACIgAAAAAAAiIiIgAAAAAAAiIiAAAA
+        IiIiIiIgAAAAIiIiIgAAAiIiIiIiIiIiACIiIiIAAAIiIiIiIiIiIgAiIiIiIAAAIiIiIiIiIiICIiIi
+        IgAAACIiIiIiIiIgAiIiIiIAAAACIiIiIiIiIAIiIiIgAAAAAiIiIiIiIiACIiIiIAAAAAAiIiIiIiIg
+        AiIiIgAAAAAAAiIiIiIiICIiIiAAAAAAAAACIiIiIiAAAiAAAAAAAAAAAAIiIiAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAEAAAABAAAAA4AAAA/AAAAf8AAAP/jAAP//wAB//8AAf/8AAH/+AAA//AAAP/gA
+        AB/4AAAP8AAAB/AAAAfgAAAD4AAAA+AAAAPgAAAD4AAAA+AAAAPgAAAB8AAAA/AAAAP4AAAH+AAAB/wA
+        AA/+AAAf/4AAf//gf///////KAAAABAAAAAgAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAIAAAICAAMDAwAAA//8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAzMzEzM1FVUDMzMTIiMTVQAzMSIkRBUAAAMwIiQkIAAAAAAiJERAAAAAIgQFRAIAAAAiAgBAAAAAAA
+        AAIkRAAAAAAAAiIiAAAAAAIgIAAiAAAiIiAAAiIgAiIiIiICIiAAIiIiICIiIAAiIiIgIiIAAAIiIiAi
+        IAAAAAIiAAAAAAABAAAAAQAAgAcAAMgPAAD4DwAA4AcAAMAHAADAAwAAgAEAAIABAACAAQAAgAEAAMAB
+        AADAAwAA4AcAAPj/AAA=
+</value>
+  </data>
+</root>

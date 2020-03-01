@@ -9,15 +9,31 @@
 '<author>Luigi600</author>
 '<summary> Error Item: to restore message, offset and line </summary>
 
+''' <summary>Represents an error of the LF2 document (wrong syntax etc.).</summary>
 Public Class ErrorItem
     Implements ICloneable
 
-    Public Message As String = ""
-    Public Offset As Integer = -1
-    Public Line As Integer = -1
-    Public File As String = ""
+    Public ReadOnly Message As String = ""
+    Public ReadOnly Offset As Integer = -1
+    Public ReadOnly EndOffset As Integer = -1
+    Public ReadOnly Line As Integer = -1
+    Public ReadOnly File As String = ""
 
-    Public Shadows Function Equals(Of T As ErrorItem)(ByVal check As T) As Boolean
+    Public Sub New(ByVal message As String, ByVal offset As Integer, ByVal endOffset As Integer, ByVal line As Integer, ByVal file As String)
+        If Not String.IsNullOrEmpty(message) Then
+            Me.Message = message
+        End If
+
+        Me.Offset = offset
+        Me.EndOffset = endOffset
+        Me.Line = line
+
+        If Not String.IsNullOrEmpty(file) Then
+            Me.File = file
+        End If
+    End Sub
+
+    Public Overloads Function Equals(ByVal check As ErrorItem) As Boolean
         If Not IsNothing(check) Then
             If Not Offset = check.Offset Then Return False
             If Not Line = check.Line Then Return False
